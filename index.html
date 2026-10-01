@@ -492,6 +492,29 @@ img{
         margin:6px auto !important;
     }
 }
+
+/* ===== FINAL SPECIAL CELEBRATION CAKE OVERLAP FIX ===== */
+@media (max-width:600px){
+    .cake{
+        position:relative !important;
+        top:auto !important;
+        right:auto !important;
+        bottom:auto !important;
+        left:auto !important;
+        transform:none !important;
+
+        width:min(165px,38vw) !important;
+        max-width:38vw !important;
+        height:auto !important;
+        max-height:20vh !important;
+
+        object-fit:contain !important;
+        display:block !important;
+        margin:4px auto 8px !important;
+        z-index:2 !important;
+        flex-shrink:0 !important;
+    }
+}
 </style>
 </head>
 
