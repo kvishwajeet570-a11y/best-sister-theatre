@@ -467,31 +467,43 @@ function render(){
         `;
         burst();
     }
-    else if(s.type==="wish" || s.type==="memory" || s.type==="message" || s.type==="you" || s.type==="adventure"){
+    else if(
+        s.type==="wish" ||
+        s.type==="memory" ||
+        s.type==="message" ||
+        s.type==="you" ||
+        s.type==="adventure" ||
+        s.type==="sister"
+    ){
         html=`
             <div class="card">
-                <div class="title" style="font-size:clamp(34px,5vw,64px)">${s.title}</div>
-                <div class="subtitle">${s.text}</div>
-            </div>
-        `;
-        makeSparks(35);
-    }
-    else if(s.type==="sister"){
-        html=`
-            <div class="card sister-bond-card">
                 <div class="title" style="font-size:clamp(34px,5vw,64px)">
                     ${s.title}
                 </div>
-                <div class="subtitle" style="font-size:clamp(18px,2.4vw,30px);line-height:1.6">
+
+                <div class="subtitle"
+                     style="font-size:clamp(18px,2.4vw,30px);
+                            line-height:1.6;
+                            max-width:1000px;
+                            margin:auto;">
                     ${s.text}
                 </div>
-                <div style="font-size:clamp(32px,5vw,55px);margin-top:22px;">
-                    💖 👭 💖
-                </div>
+
+                ${
+                    s.type==="sister"
+                    ? `<div style="font-size:clamp(32px,5vw,55px);margin-top:24px;">
+                           💖 👭 💖
+                       </div>`
+                    : ""
+                }
             </div>
         `;
-        makeHearts(18);
+
         makeSparks(35);
+
+        if(s.type==="sister"){
+            makeHearts(18);
+        }
     }
     else if(s.type==="finale"){
         html=`
@@ -601,6 +613,7 @@ stage.addEventListener("touchend",e=>{
 </script>
 </body>
 </html>
+
 
 
 
