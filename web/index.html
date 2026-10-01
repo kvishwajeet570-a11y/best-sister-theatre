@@ -1338,6 +1338,11 @@ function render(){
         .replace('<div class="title">','<div class="title special-title-up">')
         .replace('<div class="subtitle">','<div class="subtitle special-subtitle-up">');
 }
+if(s.title==="A Special Celebration" || s.title==="Keep Smiling!"){
+    html=html
+        .replace('<div class="title">','<div class="title special-title-up">')
+        .replace('<div class="subtitle">','<div class="subtitle special-subtitle-up">');
+}
 content.innerHTML=html;
 
     if(index===0){
@@ -1488,6 +1493,7 @@ stage.addEventListener("touchend",e=>{
 </script>
 </body>
 </html>
+
 
 
 
