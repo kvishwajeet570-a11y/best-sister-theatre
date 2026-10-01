@@ -346,7 +346,6 @@ const slides = [
     {
         type:"sister",
         bg:"assets/background_finale.png",
-        card:"assets/friendship_card.png",
         title:"👭 Sister Bond",
         text:"Thank you for being such a special sister in my life. Here's to our beautiful bond, countless memories, endless laughter and many more wonderful years together."
     },
@@ -477,16 +476,6 @@ function render(){
         `;
         makeSparks(35);
     }
-    else if(s.type==="friendship"){
-        html=`
-            <div class="card">
-                <div class="title" style="font-size:clamp(34px,5vw,62px)">${s.title}</div>
-                <img src="${s.card}" style="width:min(440px,75vw);margin:28px auto 18px;display:block;border-radius:18px;box-shadow:0 15px 40px rgba(0,0,0,.45)">
-                <div class="subtitle">${s.text}</div>
-            </div>
-        `;
-        makeHearts(14);
-    }
     else if(s.type==="finale"){
         html=`
             <div class="card">
@@ -595,6 +584,7 @@ stage.addEventListener("touchend",e=>{
 </script>
 </body>
 </html>
+
 
 
 
