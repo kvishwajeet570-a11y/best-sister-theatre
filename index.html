@@ -511,50 +511,56 @@ img{
     }
 }
 
+
 /* ===== SISTER BOND FINAL LAYOUT ===== */
+
 .memory-slide{
     width:100%;
     height:82vh;
-    min-height:520px;
+    min-height:500px;
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:flex-start;
-    gap:14px;
+    gap:12px;
     overflow:hidden;
     box-sizing:border-box;
+    position:relative;
+    z-index:5;
 }
 
 .memory-photo-wrap{
-    width:min(1000px,94vw);
-    height:48vh;
-    flex:0 0 48vh;
+    width:min(1050px,94vw);
+    height:50vh;
+    flex:0 0 50vh;
     display:flex;
     align-items:flex-start;
     justify-content:center;
     overflow:hidden;
-    border-radius:22px;
+    border-radius:20px;
+    position:relative;
+    z-index:6;
 }
 
 .memory-photo{
     width:100%;
     height:100%;
-    object-fit:contain;
-    object-position:center top;
+    object-fit:contain !important;
+    object-position:center top !important;
     display:block;
 }
 
 .memory-text-card{
-    width:min(1000px,94vw);
-    max-height:28vh;
+    width:min(1000px,92vw);
     box-sizing:border-box;
-    padding:18px 28px;
-    border-radius:22px;
-    background:rgba(10,8,22,.90);
+    padding:16px 28px;
+    border-radius:20px;
+    background:rgba(8,6,20,.94);
     backdrop-filter:blur(10px);
     -webkit-backdrop-filter:blur(10px);
     text-align:center;
-    overflow:auto;
+    position:relative;
+    z-index:10;
     flex:0 0 auto;
 }
 
@@ -566,34 +572,36 @@ img{
 
 .memory-text-card .subtitle{
     margin-top:10px;
-    font-size:clamp(16px,2vw,25px);
+    font-size:clamp(16px,2vw,24px);
     line-height:1.4;
 }
 
-@media (max-width:600px){
+@media(max-width:600px){
+
     .memory-slide{
         width:96vw;
         height:82vh;
         min-height:0;
-        gap:10px;
+        gap:8px;
     }
 
     .memory-photo-wrap{
         width:96vw;
-        height:43vh;
-        flex-basis:43vh;
+        height:44vh;
+        flex-basis:44vh;
         border-radius:16px;
     }
 
     .memory-photo{
-        object-fit:contain;
-        object-position:center top;
+        object-fit:contain !important;
+        object-position:center top !important;
     }
 
     .memory-text-card{
         width:96vw;
-        max-height:34vh;
-        padding:14px 16px;
+        max-height:32vh;
+        overflow:auto;
+        padding:13px 15px;
         border-radius:16px;
     }
 
@@ -606,6 +614,7 @@ img{
         line-height:1.35;
     }
 }
+
 /* ===== END SISTER BOND FINAL LAYOUT ===== */
 </style>
 </head>
@@ -824,6 +833,9 @@ function render(){
         burst();
     }
     else if(s.type==="memory"){
+        // Sister Bond ONLY: remove stage background
+        stage.style.backgroundImage = "none";
+        stage.style.background = "transparent";
         html=`
             <div class="memory-slide">
 
