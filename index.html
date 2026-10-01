@@ -1292,6 +1292,101 @@ img{
     }
 }
 
+
+/* ===== SISTER BOND ORIGINAL IMAGE + PREMIUM GLOW FRAME ===== */
+.sister-slide{
+    position:relative;
+    overflow:hidden;
+    isolation:isolate;
+}
+
+.sister-slide::before{
+    content:"";
+    position:absolute;
+    width:min(590px,86vw);
+    height:min(590px,86vw);
+    border-radius:34px;
+    border:8px solid rgba(255,245,210,.95);
+    box-shadow:
+        0 0 12px rgba(255,255,255,.95),
+        0 0 28px rgba(255,220,120,.90),
+        0 0 55px rgba(255,190,80,.70),
+        inset 0 0 25px rgba(255,240,180,.45);
+    z-index:-1;
+    pointer-events:none;
+}
+
+.sister-girl{
+    width:min(560px,82vw) !important;
+    height:auto !important;
+    max-width:82vw !important;
+    object-fit:contain !important;
+    border-radius:28px;
+    border:8px solid rgba(255,245,215,.95);
+    box-shadow:
+        0 0 12px rgba(255,255,255,.95),
+        0 0 30px rgba(255,220,120,.95),
+        0 0 65px rgba(255,190,90,.75),
+        0 12px 40px rgba(0,0,0,.40);
+    background:rgba(255,245,220,.08);
+    padding:5px;
+    position:relative;
+    z-index:2;
+}
+
+.sister-message{
+    position:relative;
+    z-index:3;
+    margin-top:18px;
+    padding:18px 24px;
+    border-radius:24px;
+    background:linear-gradient(
+        180deg,
+        rgba(20,10,35,.18),
+        rgba(10,5,20,.62)
+    );
+    border:2px solid rgba(255,230,160,.55);
+    box-shadow:
+        0 0 18px rgba(255,220,120,.35),
+        0 12px 35px rgba(0,0,0,.30);
+    backdrop-filter:blur(5px);
+}
+
+.sister-text{
+    text-shadow:
+        0 0 8px rgba(255,255,255,.65),
+        0 0 18px rgba(255,220,130,.35);
+}
+
+@media(max-width:600px){
+    .sister-girl{
+        width:90vw !important;
+        max-width:90vw !important;
+        border-width:7px;
+        border-radius:24px;
+        padding:4px;
+        box-shadow:
+            0 0 10px rgba(255,255,255,.95),
+            0 0 24px rgba(255,220,120,.95),
+            0 0 48px rgba(255,190,90,.70),
+            0 10px 30px rgba(0,0,0,.40);
+    }
+
+    .sister-slide::before{
+        width:94vw;
+        height:94vw;
+        border-width:7px;
+        border-radius:28px;
+    }
+
+    .sister-message{
+        margin-top:14px;
+        padding:14px 16px;
+        border-radius:20px;
+    }
+}
+
+/* IMPORTANT: original sister image remains unchanged */
 </style>
 </head>
 
@@ -1342,7 +1437,7 @@ const slides = [
     {
         type:"cake",
         bg:"assets/background_birthday.png",
-        girl:"assets/girl_happy.png",
+        girl:"assets/girl_idle.png",
         cake:"assets/cake.png",
         title:"🎂 A Special Celebration for My Sister",
         subtitle:"Because a wonderful sister like you deserves a birthday filled with love, laughter, happiness and beautiful memories."
@@ -1355,7 +1450,7 @@ const slides = [
     {
         type:"celebrate",
         bg:"assets/background_birthday.png",
-        girl:"assets/girl_celebrate.png",
+        girl:"assets/girl_idle.png",
         title:"🎉 Keep Smiling, My Sister!",
         subtitle:"Keep shining, keep growing and keep being the wonderful person you are. Your happiness will always be special to me."
     },
@@ -1495,7 +1590,7 @@ function render(){
         html=`
             <div class="title" style="font-size:clamp(34px,5vw,70px)">${s.title}</div>
             <div class="subtitle">${s.subtitle}</div>
-            <img class="character" src="${s.girl}?v=6">
+            <img class="character" src="${s.girl}?v=7">
             <img class="cake" src="${s.cake}">
         `;
         makeHearts(10);
@@ -1504,7 +1599,7 @@ function render(){
         html=`
             <div class="title">${s.title}</div>
             <div class="subtitle">${s.subtitle}</div>
-            <img class="character" src="${s.girl}?v=6">
+            <img class="character" src="${s.girl}?v=7">
         `;
         burst();
     }
