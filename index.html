@@ -297,6 +297,47 @@ body{
         margin:auto;
     }
 
+
+/* ===== GLOBAL TEXT POSITION FIX ===== */
+/* Only text/content moves upward. Images stay in original position. */
+
+.count{
+    transform:translateY(-35px);
+}
+
+body > .title,
+#content > .title{
+    transform:translateY(-35px);
+}
+
+body > .subtitle,
+#content > .subtitle{
+    transform:translateY(-35px);
+}
+
+/* Card-based text slides */
+.card{
+    transform:translateY(-35px);
+}
+
+/* Sister Bond: message ऊपर, girl_idle image अपनी जगह */
+.sister-message{
+    transform:translateY(-35px);
+}
+
+/* Small/finale text */
+.small{
+    transform:translateY(-35px);
+}
+
+/* Keep all images in their existing position */
+.character,
+.cake,
+.sister-girl,
+img{
+    /* position intentionally unchanged */
+}
+
 </style>
 </head>
 
@@ -674,6 +715,7 @@ stage.addEventListener("touchend",e=>{
 </script>
 </body>
 </html>
+
 
 
 
