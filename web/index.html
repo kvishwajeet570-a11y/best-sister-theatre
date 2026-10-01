@@ -1069,103 +1069,7 @@ body{
 <style>
 </style>
 
-<style id="FINAL_TEXT_LAYOUT_FIX">
-/* ==========================================================
-   FINAL TEXT LAYOUT FIX
-   TEXT ABOVE IMAGE
-   IMAGE POSITION UNCHANGED
-   ========================================================== */
 
-/* TEXT CONTAINER */
-.celebrate-slide-fixed .fixed-slide-text,
-.cake-slide-fixed .fixed-slide-text {
-    position: absolute !important;
-
-    /* Move complete text block upward */
-    top: 5% !important;
-
-    left: 5% !important;
-    width: 90% !important;
-
-    /* Text must stay above photo */
-    z-index: 1000 !important;
-
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-
-    transform: none !important;
-
-    text-align: center !important;
-    pointer-events: none !important;
-}
-
-/* TITLE */
-.celebrate-slide-fixed .fixed-slide-text .title,
-.cake-slide-fixed .fixed-slide-text .title {
-    position: relative !important;
-    z-index: 1001 !important;
-
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-
-    transform: none !important;
-
-    margin: 0 0 10px 0 !important;
-}
-
-/* SUBTITLE */
-.celebrate-slide-fixed .fixed-slide-text .subtitle,
-.cake-slide-fixed .fixed-slide-text .subtitle {
-    position: relative !important;
-    z-index: 1002 !important;
-
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-
-    transform: none !important;
-
-    margin: 0 !important;
-}
-
-/* ==========================================================
-   PHOTO AREA
-   DO NOT MOVE / RESIZE PHOTO
-   ========================================================== */
-
-.celebrate-slide-fixed .fixed-slide-images,
-.cake-slide-fixed .fixed-slide-images {
-    position: absolute !important;
-
-    bottom: 2vh !important;
-
-    z-index: 100 !important;
-}
-
-/* PHOTO ITSELF */
-.celebrate-slide-fixed .fixed-slide-images .character,
-.cake-slide-fixed .fixed-slide-images .character {
-    position: relative !important;
-
-    z-index: 101 !important;
-
-    transform: none !important;
-}
-
-/* ==========================================================
-   IMPORTANT:
-   TEXT IS ABOVE PHOTO
-   ========================================================== */
-
-.celebrate-slide-fixed .fixed-slide-text,
-.cake-slide-fixed .fixed-slide-text,
-.celebrate-slide-fixed .fixed-slide-text *,
-.cake-slide-fixed .fixed-slide-text * {
-    isolation: isolate !important;
-}
-</style>
 
 </head>
 
@@ -1582,97 +1486,25 @@ stage.addEventListener("touchend",e=>{
 
 })();
 </script>
-<style id="FINAL-CELEBRATION-TEXT-FIX">
 
-/* ===== FINAL: KEEP IMAGE EXACTLY WHERE IT IS ===== */
-.celebrate-slide-fixed{
-    position:relative !important;
-    overflow:hidden !important;
-}
 
-/* ===== TEXT LAYER: ALWAYS ABOVE IMAGE ===== */
-.celebrate-slide-fixed .fixed-slide-text{
-    position:absolute !important;
-    top: -5vh !important;
-    left:3% !important;
-    width:94% !important;
-    z-index:999999 !important;
-    display:block !important;
-    visibility:visible !important;
-    opacity:1 !important;
-    text-align:center !important;
-    transform:none !important;
-    isolation:isolate !important;
-    pointer-events:none !important;
-}
 
-/* ===== HEADING ===== */
-.celebrate-slide-fixed .fixed-slide-text .title{
-    position:relative !important;
-    z-index:1000000 !important;
-    display:block !important;
-    visibility:visible !important;
-    opacity:1 !important;
-    transform:translateY(0) !important;
-    margin:0 0 10px 0 !important;
-    line-height:1.05 !important;
-    text-shadow:
-        0 4px 10px #000,
-        0 0 18px #000,
-        0 0 30px rgba(0,0,0,.8) !important;
-}
 
-/* ===== MESSAGE: MOVE ABOVE PHOTO ===== */
-.celebrate-slide-fixed .fixed-slide-text .subtitle{
-    position:relative !important;
-    z-index:1000001 !important;
-    display:block !important;
-    visibility:visible !important;
-    opacity:1 !important;
-    transform:translateY(0) !important;
-    margin:0 auto !important;
-    line-height:1.25 !important;
-    max-width:1000px !important;
-    text-align:center !important;
-    text-shadow:
-        0 4px 10px #000,
-        0 0 18px #000,
-        0 0 30px rgba(0,0,0,.9) !important;
-}
+<style id="PNG_TEXT_FINAL">
+/* =====================================================
+   ONLY PNG SLIDES
+   TEXT UP
+   PHOTOS UNCHANGED
+   OTHER SLIDES UNCHANGED
+   ===================================================== */
 
-/* ===== IMAGE STAYS BELOW TEXT ===== */
-.celebrate-slide-fixed .fixed-slide-images{
-    position:absolute !important;
-    z-index:10 !important;
-}
-
-.celebrate-slide-fixed .fixed-slide-images img,
-.celebrate-slide-fixed .fixed-slide-images .character,
-.celebrate-slide-fixed .fixed-slide-images .cake{
-    position:relative !important;
-    z-index:11 !important;
-}
-
-/* ===== DO NOT HIDE TEXT ===== */
-.celebrate-slide-fixed .title,
-.celebrate-slide-fixed .subtitle{
-    visibility:visible !important;
-    opacity:1 !important;
-}
-
-</style>
-<style id="ONE_FINAL_CELEBRATION_TEXT_FIX">
-/* ==========================================================
-   ONE FINAL CELEBRATION TEXT RULE
-   TEXT POSITION ONLY
-   ========================================================== */
-
+.cake-slide-fixed > .fixed-slide-text,
 .celebrate-slide-fixed > .fixed-slide-text {
     position: absolute !important;
-    top: -12vh !important;
+    top: -8vh !important;
     left: 3% !important;
     width: 94% !important;
-    z-index: 99999999 !important;
+    z-index: 999999 !important;
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -1681,81 +1513,21 @@ stage.addEventListener("touchend",e=>{
     text-align: center !important;
 }
 
-.celebrate-slide-fixed > .fixed-slide-text > .title {
-    position: relative !important;
-    z-index: 100000000 !important;
-    transform: none !important;
-    margin: 0 0 10px 0 !important;
-}
-
-.celebrate-slide-fixed > .fixed-slide-text > .subtitle {
-    position: relative !important;
-    z-index: 100000001 !important;
-    transform: none !important;
-    margin: 0 auto !important;
-}
-
-/* PHOTO: NO POSITION/SIZE CHANGES */
-.celebrate-slide-fixed > .fixed-slide-images > .character {
-    transform: none !important;
-}
-</style>
-<style id="TWO_PNG_SLIDES_TEXT_ONLY_FIX">
-
-/* ==========================================================
-   ONLY 2 PNG SLIDES TEXT POSITION
-   1. CAKE SLIDE
-   2. CELEBRATION SLIDE
-
-   OTHER SLIDES: UNTOUCHED
-   PHOTOS: UNTOUCHED
-   ========================================================== */
-
-/* CAKE PNG SLIDE — TEXT ONLY */
-.cake-slide-fixed > .fixed-slide-text {
-    position: absolute !important;
-    top: -5vh !important;
-    z-index: 999999 !important;
-}
-
-/* CELEBRATION PNG SLIDE — TEXT ONLY */
-.celebrate-slide-fixed > .fixed-slide-text {
-    position: absolute !important;
-    top: -5vh !important;
-    z-index: 999999 !important;
-}
-
 /* PHOTO — DO NOT MOVE */
 .cake-slide-fixed > .fixed-slide-images,
 .celebrate-slide-fixed > .fixed-slide-images {
-    /* position and size intentionally untouched */
+    transform: none !important;
 }
 
-/* PHOTO IMAGE — DO NOT MOVE */
+/* PHOTO ITSELF — DO NOT MOVE */
 .cake-slide-fixed > .fixed-slide-images img,
 .celebrate-slide-fixed > .fixed-slide-images img {
     transform: none !important;
 }
-
-</style>
-<style id="PNG_ONLY_TEXT_POSITION">
-/* ONLY PNG SLIDES — TEXT UP */
-.cake-slide-fixed > .fixed-slide-text,
-.celebrate-slide-fixed > .fixed-slide-text {
-    top: -5vh !important;
-    z-index: 99999999 !important;
-}
-
-/* PNG PHOTOS — DO NOT MOVE */
-.cake-slide-fixed > .fixed-slide-images,
-.celebrate-slide-fixed > .fixed-slide-images {
-    transform: none !important;
-}
-
-/* OTHER SLIDES ARE NOT TARGETED */
 </style>
 </body>
 </html>
+
 
 
 
