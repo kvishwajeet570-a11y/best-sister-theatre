@@ -810,6 +810,59 @@ img{
     }
 }
 
+
+/* ===== SISTER BOND PREMIUM RETRO CARD ===== */
+@media (max-width:600px){
+    .sister-slide{
+        justify-content:center !important;
+        padding:10px !important;
+    }
+
+    .sister-slide .sister-girl{
+        width:92vw !important;
+        max-width:92vw !important;
+        max-height:40vh !important;
+        object-fit:contain !important;
+        border-radius:28px !important;
+        filter:
+            drop-shadow(0 0 12px rgba(255,120,220,.65))
+            drop-shadow(0 12px 25px rgba(0,0,0,.55)) !important;
+        margin:0 auto -42px auto !important;
+        z-index:2 !important;
+    }
+
+    .sister-slide .sister-message{
+        width:90vw !important;
+        max-width:90vw !important;
+        margin:0 auto !important;
+        z-index:3 !important;
+        border-radius:30px !important;
+        background:
+            linear-gradient(
+                135deg,
+                rgba(55,5,45,.96),
+                rgba(20,5,35,.94)
+            ) !important;
+        border:2px solid rgba(255,105,210,.75) !important;
+        box-shadow:
+            0 0 18px rgba(255,80,210,.55),
+            0 15px 40px rgba(0,0,0,.55) !important;
+        backdrop-filter:blur(8px) !important;
+    }
+}
+
+@media (min-width:601px){
+    .sister-slide .sister-girl{
+        width:min(700px,78vw) !important;
+        max-height:48vh !important;
+        border-radius:30px !important;
+        filter:
+            drop-shadow(0 0 18px rgba(255,120,220,.65))
+            drop-shadow(0 15px 30px rgba(0,0,0,.5)) !important;
+        margin:0 auto -50px auto !important;
+    }
+}
+
 </style>
 </head>
 
@@ -1013,7 +1066,7 @@ function render(){
         html=`
             <div class="title" style="font-size:clamp(34px,5vw,70px)">${s.title}</div>
             <div class="subtitle">${s.subtitle}</div>
-            <img class="character" src="${s.girl}?v=3">
+            <img class="character" src="${s.girl}?v=6">
             <img class="cake" src="${s.cake}">
         `;
         makeHearts(10);
@@ -1022,7 +1075,7 @@ function render(){
         html=`
             <div class="title">${s.title}</div>
             <div class="subtitle">${s.subtitle}</div>
-            <img class="character" src="${s.girl}?v=3">
+            <img class="character" src="${s.girl}?v=6">
         `;
         burst();
     }
@@ -1067,7 +1120,7 @@ function render(){
 
                     <img
                         class="sister-retro-photo"
-                        src="${s.girl}?v=10"
+                        src="${s.girl}?v=6"
                         alt="Best Sister"
                     >
 
