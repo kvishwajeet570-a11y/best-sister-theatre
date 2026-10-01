@@ -1079,21 +1079,57 @@ body{
     transform:translateY(-55px) !important;
 }
 </style><style id="text-position-fix-2">
-</style><style id="text-only-position-fix">
+</style><style id="STRONG-TEXT-OVER-IMAGE-FIX">
+
+/* Keep the actual photo exactly where it is */
+.cake-slide-fixed img,
+.celebrate-slide-fixed img{
+    position:relative !important;
+    z-index:1 !important;
+}
+
+/* Put the complete text layer ABOVE the photo */
 .cake-slide-fixed .fixed-slide-text,
 .celebrate-slide-fixed .fixed-slide-text{
     position:relative !important;
-    z-index:1000 !important;
-    transform:translateY(-115px) !important;
+    z-index:999999 !important;
+    transform:translateY(-220px) !important;
+    isolation:isolate !important;
 }
 
+/* Heading always above photo */
 .cake-slide-fixed .fixed-slide-text .title,
+.celebrate-slide-fixed .fixed-slide-text .title{
+    position:relative !important;
+    z-index:1000000 !important;
+    transform:none !important;
+    opacity:1 !important;
+    visibility:visible !important;
+}
+
+/* Message/subtitle always above photo */
 .cake-slide-fixed .fixed-slide-text .subtitle,
-.celebrate-slide-fixed .fixed-slide-text .title,
 .celebrate-slide-fixed .fixed-slide-text .subtitle{
     position:relative !important;
-    z-index:1001 !important;
+    z-index:1000000 !important;
+    transform:none !important;
+    opacity:1 !important;
+    visibility:visible !important;
 }
+
+/* Make sure the text is not clipped by the slide */
+.cake-slide-fixed,
+.celebrate-slide-fixed{
+    overflow:visible !important;
+}
+
+/* Text must remain visible */
+.cake-slide-fixed .fixed-slide-text *,
+.celebrate-slide-fixed .fixed-slide-text *{
+    visibility:visible !important;
+    opacity:1 !important;
+}
+
 </style></head>
 
 <body>
@@ -1511,6 +1547,7 @@ stage.addEventListener("touchend",e=>{
 </script>
 </body>
 </html>
+
 
 
 
