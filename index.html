@@ -1080,6 +1080,86 @@ img{
     }
 }
 
+
+/* ===== SISTER BOND PNG GLOWING BORDER ONLY ===== */
+
+.sister-premium-photo{
+    border:3px solid rgba(255,190,245,.95) !important;
+    border-radius:32px !important;
+
+    box-shadow:
+        0 0 8px rgba(255,255,255,.95),
+        0 0 18px rgba(255,105,220,.95),
+        0 0 35px rgba(210,80,255,.85),
+        0 0 60px rgba(150,70,255,.65),
+        0 18px 45px rgba(0,0,0,.55) !important;
+
+    position:relative;
+    z-index:2;
+}
+
+/* Animated light glow around the PNG */
+.sister-photo-wrap::before{
+    content:"";
+    position:absolute;
+    inset:-6px;
+    border-radius:38px;
+
+    background:
+        linear-gradient(
+            120deg,
+            #fff,
+            #ff8de7,
+            #b56cff,
+            #fff,
+            #ff8de7
+        );
+
+    background-size:300% 300%;
+
+    z-index:-1;
+
+    filter:blur(8px);
+    opacity:.9;
+
+    animation:sisterBorderGlow 4s ease-in-out infinite;
+}
+
+@keyframes sisterBorderGlow{
+    0%{
+        background-position:0% 50%;
+        opacity:.65;
+    }
+    50%{
+        background-position:100% 50%;
+        opacity:1;
+    }
+    100%{
+        background-position:0% 50%;
+        opacity:.65;
+    }
+}
+
+@media(max-width:600px){
+
+    .sister-premium-photo{
+        border:2px solid rgba(255,190,245,.95) !important;
+        border-radius:26px !important;
+
+        box-shadow:
+            0 0 7px rgba(255,255,255,.95),
+            0 0 16px rgba(255,105,220,.95),
+            0 0 30px rgba(190,80,255,.8),
+            0 12px 30px rgba(0,0,0,.55) !important;
+    }
+
+    .sister-photo-wrap::before{
+        inset:-4px;
+        border-radius:31px;
+        filter:blur(6px);
+    }
+}
+
 </style>
 </head>
 
