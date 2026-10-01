@@ -1166,6 +1166,73 @@ body{
     isolation: isolate !important;
 }
 </style>
+<style id="ABSOLUTE_FINAL_CELEBRATION_TEXT_FIX">
+/* =========================================================
+   ABSOLUTE FINAL CELEBRATION TEXT POSITION
+   TEXT ONLY — PHOTO COMPLETELY UNTOUCHED
+   ========================================================= */
+
+.celebrate-slide-fixed > .fixed-slide-text {
+    position: absolute !important;
+
+    /* TEXT BOARD — MOVE UP */
+    top: -12vh !important;
+
+    left: 3% !important;
+    width: 94% !important;
+
+    z-index: 9999999 !important;
+
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    transform: none !important;
+    margin: 0 !important;
+
+    text-align: center !important;
+}
+
+/* TITLE */
+.celebrate-slide-fixed > .fixed-slide-text > .title {
+    position: relative !important;
+    z-index: 10000000 !important;
+
+    transform: none !important;
+    margin: 0 0 10px 0 !important;
+
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* SUBTITLE */
+.celebrate-slide-fixed > .fixed-slide-text > .subtitle {
+    position: relative !important;
+    z-index: 10000001 !important;
+
+    transform: none !important;
+    margin: 0 auto !important;
+
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* =========================================================
+   PHOTO — DO NOT CHANGE POSITION OR SIZE
+   ========================================================= */
+
+.celebrate-slide-fixed > .fixed-slide-images {
+    /* NO top/bottom/left/width/height changes */
+    z-index: 10 !important;
+}
+
+.celebrate-slide-fixed > .fixed-slide-images > .character {
+    /* NO transform / size / position changes */
+    z-index: 11 !important;
+}
+</style>
 </head>
 
 <body>
@@ -1661,6 +1728,7 @@ stage.addEventListener("touchend",e=>{
 
 </style></body>
 </html>
+
 
 
 
