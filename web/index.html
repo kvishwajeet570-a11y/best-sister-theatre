@@ -1543,8 +1543,87 @@ stage.addEventListener("touchend",e=>{
 
 })();
 </script>
-</body>
+<style id="FINAL-CELEBRATION-TEXT-FIX">
+
+/* ===== FINAL: KEEP IMAGE EXACTLY WHERE IT IS ===== */
+.celebrate-slide-fixed{
+    position:relative !important;
+    overflow:hidden !important;
+}
+
+/* ===== TEXT LAYER: ALWAYS ABOVE IMAGE ===== */
+.celebrate-slide-fixed .fixed-slide-text{
+    position:absolute !important;
+    top:2vh !important;
+    left:3% !important;
+    width:94% !important;
+    z-index:999999 !important;
+    display:block !important;
+    visibility:visible !important;
+    opacity:1 !important;
+    text-align:center !important;
+    transform:none !important;
+    isolation:isolate !important;
+    pointer-events:none !important;
+}
+
+/* ===== HEADING ===== */
+.celebrate-slide-fixed .fixed-slide-text .title{
+    position:relative !important;
+    z-index:1000000 !important;
+    display:block !important;
+    visibility:visible !important;
+    opacity:1 !important;
+    transform:translateY(0) !important;
+    margin:0 0 10px 0 !important;
+    line-height:1.05 !important;
+    text-shadow:
+        0 4px 10px #000,
+        0 0 18px #000,
+        0 0 30px rgba(0,0,0,.8) !important;
+}
+
+/* ===== MESSAGE: MOVE ABOVE PHOTO ===== */
+.celebrate-slide-fixed .fixed-slide-text .subtitle{
+    position:relative !important;
+    z-index:1000001 !important;
+    display:block !important;
+    visibility:visible !important;
+    opacity:1 !important;
+    transform:translateY(0) !important;
+    margin:0 auto !important;
+    line-height:1.25 !important;
+    max-width:1000px !important;
+    text-align:center !important;
+    text-shadow:
+        0 4px 10px #000,
+        0 0 18px #000,
+        0 0 30px rgba(0,0,0,.9) !important;
+}
+
+/* ===== IMAGE STAYS BELOW TEXT ===== */
+.celebrate-slide-fixed .fixed-slide-images{
+    position:absolute !important;
+    z-index:10 !important;
+}
+
+.celebrate-slide-fixed .fixed-slide-images img,
+.celebrate-slide-fixed .fixed-slide-images .character,
+.celebrate-slide-fixed .fixed-slide-images .cake{
+    position:relative !important;
+    z-index:11 !important;
+}
+
+/* ===== DO NOT HIDE TEXT ===== */
+.celebrate-slide-fixed .title,
+.celebrate-slide-fixed .subtitle{
+    visibility:visible !important;
+    opacity:1 !important;
+}
+
+</style></body>
 </html>
+
 
 
 
