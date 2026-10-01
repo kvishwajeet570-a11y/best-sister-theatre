@@ -540,58 +540,6 @@ function render(){
     }
     else if(s.type==="sister"){
         html=`
-            <div style="
-                width:min(92vw,1100px);
-                height:90vh;
-                display:flex;
-                flex-direction:column;
-                align-items:center;
-                justify-content:center;
-                gap:12px;
-                padding:10px;
-                box-sizing:border-box;
-            ">
-
-                <img
-                    src="assets/girl_idle.png"
-                    style="
-                        width:min(88vw,1050px);
-                        max-height:70vh;
-                        object-fit:contain;
-                        border-radius:22px;
-                        display:block;
-                        box-shadow:0 15px 50px rgba(0,0,0,.45);
-                    "
-                >
-
-                <div style="
-                    font-size:clamp(24px,3vw,42px);
-                    font-weight:700;
-                    margin-top:4px;
-                    text-align:center;
-                ">
-                    ${s.title}
-                </div>
-
-                <div style="
-                    font-size:clamp(13px,1.25vw,20px);
-                    line-height:1.45;
-                    max-width:900px;
-                    text-align:center;
-                    padding:0 15px;
-                    opacity:.95;
-                ">
-                    ${s.text}
-                </div>
-
-            </div>
-        `;
-
-        makeHearts(18);
-        makeSparks(35);
-    }
-    else if(s.type==="sister"){
-        html=`
             <div class="sister-slide">
 
                 <img
@@ -726,6 +674,7 @@ stage.addEventListener("touchend",e=>{
 </script>
 </body>
 </html>
+
 
 
 
