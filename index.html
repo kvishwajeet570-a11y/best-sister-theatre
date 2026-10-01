@@ -863,6 +863,223 @@ img{
     }
 }
 
+
+/* =========================================================
+   PREMIUM SISTER BOND — RETRO GLOW CARD
+   ========================================================= */
+
+.sister-premium{
+    width:min(1100px,94vw);
+    min-height:78vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:0;
+    box-sizing:border-box;
+    position:relative;
+    padding:20px 15px 35px;
+}
+
+.sister-photo-wrap{
+    width:min(700px,82vw);
+    position:relative;
+    z-index:2;
+    margin:0 auto -55px;
+    border-radius:32px;
+}
+
+.sister-photo-glow{
+    position:absolute;
+    inset:-18px;
+    border-radius:42px;
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(255,105,210,.75),
+            rgba(150,60,255,.35),
+            transparent 72%
+        );
+    filter:blur(22px);
+    opacity:.9;
+    z-index:-1;
+}
+
+.sister-premium-photo{
+    width:100%;
+    height:auto;
+    max-height:52vh;
+    object-fit:contain;
+    display:block;
+    border-radius:30px;
+
+    border:2px solid rgba(255,190,240,.75);
+
+    box-shadow:
+        0 0 12px rgba(255,110,220,.85),
+        0 0 35px rgba(190,70,255,.55),
+        0 25px 55px rgba(0,0,0,.65);
+
+    filter:
+        brightness(1.05)
+        saturate(1.08);
+}
+
+.sister-premium-card{
+    position:relative;
+    z-index:3;
+
+    width:min(850px,88vw);
+    box-sizing:border-box;
+
+    padding:28px 38px 22px;
+
+    text-align:center;
+
+    border-radius:32px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(55,8,55,.97),
+            rgba(24,7,42,.96)
+        );
+
+    border:1px solid rgba(255,150,225,.65);
+
+    box-shadow:
+        0 0 20px rgba(255,90,210,.38),
+        0 0 55px rgba(145,65,255,.25),
+        0 20px 55px rgba(0,0,0,.65);
+
+    backdrop-filter:blur(12px);
+}
+
+.sister-premium-title{
+    font-size:clamp(30px,4vw,58px);
+    font-weight:800;
+    line-height:1.1;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff,
+            #ffd1f4,
+            #eaa9ff,
+            #fff
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+
+    text-shadow:
+        0 0 18px rgba(255,110,220,.55);
+}
+
+.sister-premium-divider{
+    width:min(300px,60vw);
+    height:2px;
+    margin:15px auto 17px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,150,225,.95),
+            rgba(210,130,255,.95),
+            transparent
+        );
+
+    box-shadow:0 0 12px rgba(255,100,220,.65);
+}
+
+.sister-premium-text{
+    max-width:760px;
+    margin:auto;
+
+    font-size:clamp(15px,1.55vw,22px);
+    line-height:1.55;
+    color:#fff;
+
+    text-shadow:0 2px 8px rgba(0,0,0,.6);
+}
+
+.sister-premium-heart{
+    margin-top:13px;
+    font-size:clamp(20px,3vw,34px);
+
+    filter:
+        drop-shadow(0 0 10px rgba(255,70,130,.8));
+
+    animation: sisterHeartPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes sisterHeartPulse{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.15);
+    }
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
+
+    .sister-premium{
+        width:100%;
+        min-height:100%;
+        padding:10px 6px 25px;
+    }
+
+    .sister-photo-wrap{
+        width:92vw;
+        margin:0 auto -38px;
+        border-radius:25px;
+    }
+
+    .sister-photo-glow{
+        inset:-12px;
+        filter:blur(17px);
+    }
+
+    .sister-premium-photo{
+        width:92vw;
+        max-width:92vw;
+        max-height:48vh;
+        border-radius:25px;
+    }
+
+    .sister-premium-card{
+        width:91vw;
+        max-width:91vw;
+
+        padding:20px 15px 17px;
+
+        border-radius:25px;
+    }
+
+    .sister-premium-title{
+        font-size:clamp(25px,7vw,36px);
+    }
+
+    .sister-premium-divider{
+        margin:10px auto 12px;
+    }
+
+    .sister-premium-text{
+        font-size:clamp(13px,3.8vw,18px);
+        line-height:1.45;
+    }
+
+    .sister-premium-heart{
+        margin-top:9px;
+        font-size:25px;
+    }
+}
+
 </style>
 </head>
 
@@ -1106,36 +1323,32 @@ function render(){
     }
     else if(s.type==="sister"){
     html=`
-        <div class="sister-retro-screen">
+        <div class="sister-premium">
 
-            <div class="sister-retro-frame">
+            <div class="sister-photo-wrap">
+                <div class="sister-photo-glow"></div>
 
-                <div class="sister-retro-glow"></div>
+                <img
+                    class="sister-premium-photo"
+                    src="assets/sister_bond.png?v=7"
+                    alt="Sister Bond"
+                >
+            </div>
 
-                <div class="sister-photo-wrap">
+            <div class="sister-premium-card">
 
-                    <div class="sister-photo-title">
-                        👭 MY DEAR SISTER 👭
-                    </div>
-
-                    <img
-                        class="sister-retro-photo"
-                        src="${s.girl}?v=6"
-                        alt="Best Sister"
-                    >
-
+                <div class="sister-premium-title">
+                    👭 Sister Bond
                 </div>
 
-                <div class="sister-retro-message">
+                <div class="sister-premium-divider"></div>
 
-                    <div class="sister-retro-title">
-                        💖 Sister Bond 💖
-                    </div>
+                <div class="sister-premium-text">
+                    ${s.text}
+                </div>
 
-                    <div class="sister-retro-text">
-                        ${s.text}
-                    </div>
-
+                <div class="sister-premium-heart">
+                    ❤️
                 </div>
 
             </div>
@@ -1143,8 +1356,8 @@ function render(){
         </div>
     `;
 
-    makeHearts(12);
-    makeSparks(35);
+    makeHearts(18);
+    makeSparks(45);
 }
 else if(s.type==="finale"){
         html=`
