@@ -510,6 +510,103 @@ img{
         object-fit:contain !important;
     }
 }
+
+/* ===== SISTER BOND FINAL LAYOUT ===== */
+.memory-slide{
+    width:100%;
+    height:82vh;
+    min-height:520px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    gap:14px;
+    overflow:hidden;
+    box-sizing:border-box;
+}
+
+.memory-photo-wrap{
+    width:min(1000px,94vw);
+    height:48vh;
+    flex:0 0 48vh;
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    overflow:hidden;
+    border-radius:22px;
+}
+
+.memory-photo{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    object-position:center top;
+    display:block;
+}
+
+.memory-text-card{
+    width:min(1000px,94vw);
+    max-height:28vh;
+    box-sizing:border-box;
+    padding:18px 28px;
+    border-radius:22px;
+    background:rgba(10,8,22,.90);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    text-align:center;
+    overflow:auto;
+    flex:0 0 auto;
+}
+
+.memory-text-card .title{
+    font-size:clamp(28px,4vw,52px);
+    line-height:1.1;
+    margin:0;
+}
+
+.memory-text-card .subtitle{
+    margin-top:10px;
+    font-size:clamp(16px,2vw,25px);
+    line-height:1.4;
+}
+
+@media (max-width:600px){
+    .memory-slide{
+        width:96vw;
+        height:82vh;
+        min-height:0;
+        gap:10px;
+    }
+
+    .memory-photo-wrap{
+        width:96vw;
+        height:43vh;
+        flex-basis:43vh;
+        border-radius:16px;
+    }
+
+    .memory-photo{
+        object-fit:contain;
+        object-position:center top;
+    }
+
+    .memory-text-card{
+        width:96vw;
+        max-height:34vh;
+        padding:14px 16px;
+        border-radius:16px;
+    }
+
+    .memory-text-card .title{
+        font-size:clamp(24px,7vw,38px);
+    }
+
+    .memory-text-card .subtitle{
+        font-size:clamp(14px,4vw,20px);
+        line-height:1.35;
+    }
+}
+/* ===== END SISTER BOND FINAL LAYOUT ===== */
 </style>
 </head>
 
@@ -726,9 +823,34 @@ function render(){
         `;
         burst();
     }
+    else if(s.type==="memory"){
+        html=`
+            <div class="memory-slide">
+
+                <div class="memory-photo-wrap">
+                    <img
+                        class="memory-photo"
+                        src="${s.bg}?v=12"
+                    >
+                </div>
+
+                <div class="memory-text-card">
+                    <div class="title">
+                        ${s.title}
+                    </div>
+
+                    <div class="subtitle">
+                        ${s.text}
+                    </div>
+                </div>
+
+            </div>
+        `;
+
+        makeSparks(35);
+    }
     else if(
         s.type==="wish" ||
-        s.type==="memory" ||
         s.type==="message" ||
         s.type==="you" ||
         s.type==="adventure"
