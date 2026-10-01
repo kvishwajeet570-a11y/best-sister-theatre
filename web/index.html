@@ -1660,11 +1660,11 @@ stage.addEventListener("touchend",e=>{
     opacity:1 !important;
 }
 
-</style><style id="TRUE_FINAL_CELEBRATION_TEXT_FIX">
+</style>
+<style id="ONE_FINAL_CELEBRATION_TEXT_FIX">
 /* ==========================================================
-   TRUE FINAL CELEBRATION TEXT FIX
-   THIS IS THE LAST CSS RULE
-   TEXT ONLY — PHOTO UNCHANGED
+   ONE FINAL CELEBRATION TEXT RULE
+   TEXT POSITION ONLY
    ========================================================== */
 
 .celebrate-slide-fixed > .fixed-slide-text {
@@ -1672,59 +1672,76 @@ stage.addEventListener("touchend",e=>{
     top: -12vh !important;
     left: 3% !important;
     width: 94% !important;
-
     z-index: 99999999 !important;
-
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
-
     transform: none !important;
     margin: 0 !important;
     text-align: center !important;
 }
 
-/* TITLE */
 .celebrate-slide-fixed > .fixed-slide-text > .title {
     position: relative !important;
     z-index: 100000000 !important;
-
     transform: none !important;
     margin: 0 0 10px 0 !important;
-
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
 }
 
-/* SUBTITLE */
 .celebrate-slide-fixed > .fixed-slide-text > .subtitle {
     position: relative !important;
     z-index: 100000001 !important;
-
     transform: none !important;
     margin: 0 auto !important;
-
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
 }
+
+/* PHOTO: NO POSITION/SIZE CHANGES */
+.celebrate-slide-fixed > .fixed-slide-images > .character {
+    transform: none !important;
+}
+</style>
+<style id="TWO_PNG_SLIDES_TEXT_ONLY_FIX">
 
 /* ==========================================================
-   PHOTO — DO NOT MOVE
-   DO NOT CHANGE SIZE
+   ONLY 2 PNG SLIDES TEXT POSITION
+   1. CAKE SLIDE
+   2. CELEBRATION SLIDE
+
+   OTHER SLIDES: UNTOUCHED
+   PHOTOS: UNTOUCHED
    ========================================================== */
 
-.celebrate-slide-fixed > .fixed-slide-images {
-    z-index: 10 !important;
+/* CAKE PNG SLIDE — TEXT ONLY */
+.cake-slide-fixed > .fixed-slide-text {
+    position: absolute !important;
+    top: -5vh !important;
+    z-index: 999999 !important;
 }
 
-.celebrate-slide-fixed > .fixed-slide-images > .character {
-    z-index: 11 !important;
+/* CELEBRATION PNG SLIDE — TEXT ONLY */
+.celebrate-slide-fixed > .fixed-slide-text {
+    position: absolute !important;
+    top: -5vh !important;
+    z-index: 999999 !important;
 }
+
+/* PHOTO — DO NOT MOVE */
+.cake-slide-fixed > .fixed-slide-images,
+.celebrate-slide-fixed > .fixed-slide-images {
+    /* position and size intentionally untouched */
+}
+
+/* PHOTO IMAGE — DO NOT MOVE */
+.cake-slide-fixed > .fixed-slide-images img,
+.celebrate-slide-fixed > .fixed-slide-images img {
+    transform: none !important;
+}
+
 </style>
 </body>
 </html>
+
+
 
 
 
