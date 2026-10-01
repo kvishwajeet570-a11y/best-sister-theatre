@@ -746,6 +746,70 @@ img{
         line-height:1.38;
     }
 }
+
+/* ===== SISTER BOND PHOTO - BIG + BLENDED RETRO STYLE ===== */
+.sister-slide{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+}
+
+.sister-slide .sister-girl{
+    width:min(560px,82vw) !important;
+    max-width:82vw !important;
+    height:auto !important;
+    max-height:42vh !important;
+    object-fit:contain !important;
+    display:block !important;
+    margin:0 auto -35px auto !important;
+    position:relative !important;
+    z-index:2 !important;
+
+    border-radius:28px 28px 18px 18px !important;
+
+    filter:
+        drop-shadow(0 12px 25px rgba(0,0,0,.45))
+        saturate(1.08)
+        contrast(1.03) !important;
+
+    -webkit-mask-image:linear-gradient(
+        to bottom,
+        black 78%,
+        rgba(0,0,0,.85) 88%,
+        transparent 100%
+    ) !important;
+
+    mask-image:linear-gradient(
+        to bottom,
+        black 78%,
+        rgba(0,0,0,.85) 88%,
+        transparent 100%
+    ) !important;
+}
+
+.sister-slide .sister-message{
+    position:relative !important;
+    z-index:3 !important;
+    margin-top:0 !important;
+}
+
+/* Mobile */
+@media (max-width:600px){
+    .sister-slide .sister-girl{
+        width:90vw !important;
+        max-width:90vw !important;
+        max-height:38vh !important;
+        margin:0 auto -45px auto !important;
+        border-radius:26px 26px 15px 15px !important;
+    }
+
+    .sister-slide .sister-message{
+        width:88vw !important;
+        max-width:88vw !important;
+    }
+}
+
 </style>
 </head>
 
