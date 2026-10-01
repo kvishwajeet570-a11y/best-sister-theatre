@@ -705,14 +705,13 @@ function render(){
     clearExtra();
 
     const s=slides[index];
-    /* ===== FINAL_MEMORY_STAGE_BACKGROUND_FIX ===== */
+
     if(s.type==="memory"){
-    stage.style.backgroundImage="none";
-    stage.style.background="transparent";
-    stage.style.backgroundColor="transparent";
-}else{
-    setBackground(s.bg);
-} else { setBackground(s.bg); }
+        stage.style.backgroundImage="none";
+        stage.style.background="transparent";
+        stage.style.backgroundColor="transparent";
+    }else{
+        setBackground(s.bg);
     }
 
     let html="";
