@@ -1067,92 +1067,65 @@ body{
 }
 </style>
 <style>
-</style><style id="all-text-position-fix">
-.title{
-    position:relative !important;
-    z-index:60 !important;
-    transform:translateY(-70px) !important;
-}
-.subtitle{
-    position:relative !important;
-    z-index:60 !important;
-    transform:translateY(-55px) !important;
-}
-</style><style id="text-position-fix-2">
-</style><style id="STRONG-TEXT-OVER-IMAGE-FIX">
+</style>
+<style id="FINAL_CLEAN_TEXT_POSITION_FIX">
+/* =====================================================
+   FINAL CLEAN TEXT POSITION FIX
+   ONLY TEXT MOVES — PHOTOS STAY EXACTLY WHERE THEY ARE
+   ===================================================== */
 
-/* Keep the actual photo exactly where it is */
-.cake-slide-fixed img,
-.celebrate-slide-fixed img{
-    position:relative !important;
-    z-index:1 !important;
-}
-
-/* Put the complete text layer ABOVE the photo */
-.cake-slide-fixed .fixed-slide-text,
-.celebrate-slide-fixed .fixed-slide-text{
-    position:relative !important;
-    z-index:999999 !important;
-    transform:translateY(-220px) !important;
-    isolation:isolate !important;
-}
-
-/* Heading always above photo */
-.cake-slide-fixed .fixed-slide-text .title,
-.celebrate-slide-fixed .fixed-slide-text .title{
-    position:relative !important;
-    z-index:1000000 !important;
-    transform:none !important;
-    opacity:1 !important;
-    visibility:visible !important;
-}
-
-/* Message/subtitle always above photo */
-.cake-slide-fixed .fixed-slide-text .subtitle,
-.celebrate-slide-fixed .fixed-slide-text .subtitle{
-    position:relative !important;
-    z-index:1000000 !important;
-    transform:none !important;
-    opacity:1 !important;
-    visibility:visible !important;
-}
-
-/* Make sure the text is not clipped by the slide */
-.cake-slide-fixed,
-.celebrate-slide-fixed{
-    overflow:visible !important;
-}
-
-/* Text must remain visible */
-.cake-slide-fixed .fixed-slide-text *,
-.celebrate-slide-fixed .fixed-slide-text *{
-    visibility:visible !important;
-    opacity:1 !important;
-}
-
-</style><style id="FINAL_TEXT_POSITION_FIX">
-/* FINAL FIX: Move ONLY text upward. Images remain unchanged. */
 .celebrate-slide-fixed .fixed-slide-text,
 .cake-slide-fixed .fixed-slide-text{
-    position:relative !important;
-    z-index:1000 !important;
-    transform:translateY(-125px) !important;
+    position:absolute !important;
+    top:-3vh !important;
+    left:5% !important;
+    width:90% !important;
+    z-index:999999 !important;
+    display:block !important;
+    visibility:visible !important;
+    opacity:1 !important;
+    transform:none !important;
+    text-align:center !important;
 }
 
-/* Keep title clearly above the photo */
+/* Heading */
 .celebrate-slide-fixed .fixed-slide-text .title,
 .cake-slide-fixed .fixed-slide-text .title{
     position:relative !important;
-    z-index:1001 !important;
-    transform:translateY(0) !important;
+    z-index:1000000 !important;
+    display:block !important;
+    visibility:visible !important;
+    opacity:1 !important;
+    transform:none !important;
+    margin-bottom:12px !important;
 }
 
-/* Keep message/subtitle above the photo */
+/* Message */
 .celebrate-slide-fixed .fixed-slide-text .subtitle,
 .cake-slide-fixed .fixed-slide-text .subtitle{
     position:relative !important;
-    z-index:1002 !important;
-    transform:translateY(0) !important;
+    z-index:1000001 !important;
+    display:block !important;
+    visibility:visible !important;
+    opacity:1 !important;
+    transform:none !important;
+    margin-top:0 !important;
+}
+
+/* PHOTO — DO NOT MOVE */
+.celebrate-slide-fixed .fixed-slide-images,
+.cake-slide-fixed .fixed-slide-images{
+    position:absolute !important;
+    bottom:2vh !important;
+    z-index:50 !important;
+}
+
+/* PHOTO ITSELF — DO NOT MOVE */
+.celebrate-slide-fixed .fixed-slide-images .character,
+.cake-slide-fixed .fixed-slide-images .character{
+    position:relative !important;
+    z-index:51 !important;
+    transform:none !important;
 }
 </style>
 </head>
@@ -1572,6 +1545,7 @@ stage.addEventListener("touchend",e=>{
 </script>
 </body>
 </html>
+
 
 
 
