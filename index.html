@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -441,6 +441,29 @@ img{
     .sister-text{
         font-size:clamp(13px,3.8vw,18px);
         line-height:1.4;
+    }
+}
+
+/* ===== MOBILE CELEBRATION IMAGE SIZE ===== */
+@media (max-width:600px){
+    .character{
+        width:min(360px,82vw) !important;
+        max-width:82vw !important;
+        height:auto !important;
+        max-height:52vh !important;
+        object-fit:contain !important;
+        display:block !important;
+        margin:10px auto !important;
+    }
+
+    .cake{
+        width:min(300px,65vw) !important;
+        max-width:65vw !important;
+        height:auto !important;
+        max-height:34vh !important;
+        object-fit:contain !important;
+        display:block !important;
+        margin:10px auto !important;
     }
 }
 </style>
