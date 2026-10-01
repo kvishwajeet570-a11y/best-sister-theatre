@@ -1067,16 +1067,6 @@ body{
 }
 </style>
 <style>
-.special-title-up{
-    position:relative !important;
-    z-index:50 !important;
-    transform:translateY(-95px) !important;
-}
-.special-subtitle-up{
-    position:relative !important;
-    z-index:50 !important;
-    transform:translateY(-75px) !important;
-}
 </style><style id="all-text-position-fix">
 .title{
     position:relative !important;
@@ -1089,36 +1079,17 @@ body{
     transform:translateY(-55px) !important;
 }
 </style><style id="text-position-fix-2">
-.special-title-up{
-    position:relative !important;
-    z-index:100 !important;
-    transform:translateY(-150px) !important;
-}
-.special-subtitle-up{
-    position:relative !important;
-    z-index:100 !important;
-    transform:translateY(-125px) !important;
-}
-</style><style id="final-text-position-fix">
-.cake-slide-fixed .fixed-slide-text{
-    position:relative !important;
-    z-index:1000 !important;
-    transform:translateY(-120px) !important;
-}
-
+</style><style id="text-only-position-fix">
+.cake-slide-fixed .fixed-slide-text,
 .celebrate-slide-fixed .fixed-slide-text{
     position:relative !important;
     z-index:1000 !important;
-    transform:translateY(-120px) !important;
+    transform:translateY(-115px) !important;
 }
 
 .cake-slide-fixed .fixed-slide-text .title,
-.celebrate-slide-fixed .fixed-slide-text .title{
-    position:relative !important;
-    z-index:1001 !important;
-}
-
 .cake-slide-fixed .fixed-slide-text .subtitle,
+.celebrate-slide-fixed .fixed-slide-text .title,
 .celebrate-slide-fixed .fixed-slide-text .subtitle{
     position:relative !important;
     z-index:1001 !important;
@@ -1390,17 +1361,7 @@ function render(){
         burst();
     }
 
-    if(s.title==="A Special Celebration" || s.title==="Keep Smiling!"){
-    html=html
-        .replace('<div class="title">','<div class="title special-title-up">')
-        .replace('<div class="subtitle">','<div class="subtitle special-subtitle-up">');
-}
-if(s.title==="A Special Celebration" || s.title==="Keep Smiling!"){
-    html=html
-        .replace('<div class="title">','<div class="title special-title-up">')
-        .replace('<div class="subtitle">','<div class="subtitle special-subtitle-up">');
-}
-content.innerHTML=html;
+    content.innerHTML=html;
 
     if(index===0){
         makeSparks(25);
@@ -1550,6 +1511,8 @@ stage.addEventListener("touchend",e=>{
 </script>
 </body>
 </html>
+
+
 
 
 
