@@ -399,6 +399,67 @@ img{
     }
 }
 
+
+/* ===== MOBILE SISTER IMAGE FIX ===== */
+
+.sister-slide{
+    width:100%;
+    max-width:1100px;
+    box-sizing:border-box;
+    overflow:visible;
+}
+
+.sister-girl{
+    width:min(420px,58vw);
+    height:auto;
+    max-width:90vw;
+    max-height:55vh;
+    object-fit:contain;
+    display:block;
+    margin:0 auto;
+    flex-shrink:0;
+}
+
+@media (max-width:600px){
+
+    .sister-slide{
+        width:100%;
+        min-height:100%;
+        padding:10px;
+        gap:12px;
+        box-sizing:border-box;
+    }
+
+    .sister-girl{
+        width:min(300px,78vw);
+        max-width:78vw;
+        height:auto;
+        max-height:48vh;
+        object-fit:contain;
+        display:block;
+        visibility:visible;
+        opacity:1;
+    }
+
+    .sister-message{
+        width:90vw;
+        max-width:90vw;
+        padding:12px 16px;
+        box-sizing:border-box;
+        margin:0 auto;
+    }
+
+    .sister-message .title{
+        font-size:clamp(24px,7vw,38px);
+        margin-bottom:6px;
+    }
+
+    .sister-text{
+        font-size:clamp(14px,4vw,19px);
+        line-height:1.45;
+    }
+}
+
 </style>
 </head>
 
@@ -776,6 +837,7 @@ stage.addEventListener("touchend",e=>{
 </script>
 </body>
 </html>
+
 
 
 
