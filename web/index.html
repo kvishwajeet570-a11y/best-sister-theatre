@@ -1738,8 +1738,25 @@ stage.addEventListener("touchend",e=>{
 }
 
 </style>
+<style id="PNG_ONLY_TEXT_POSITION">
+/* ONLY PNG SLIDES — TEXT UP */
+.cake-slide-fixed > .fixed-slide-text,
+.celebrate-slide-fixed > .fixed-slide-text {
+    top: -5vh !important;
+    z-index: 99999999 !important;
+}
+
+/* PNG PHOTOS — DO NOT MOVE */
+.cake-slide-fixed > .fixed-slide-images,
+.celebrate-slide-fixed > .fixed-slide-images {
+    transform: none !important;
+}
+
+/* OTHER SLIDES ARE NOT TARGETED */
+</style>
 </body>
 </html>
+
 
 
 
