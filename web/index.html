@@ -98,7 +98,7 @@ body{
     max-width:42%;
     object-fit:contain;
     filter:drop-shadow(0 18px 30px rgba(0,0,0,.5));
-    animation:none;
+    animation:characterIn 1s ease both, float 3.8s ease-in-out 1s infinite;
 }
 .cake{
     position:absolute;
@@ -107,7 +107,7 @@ body{
     width:min(24vw,300px);
     max-height:42%;
     object-fit:contain;
-    animation:none;
+    animation:cakeIn 1s .25s ease both, float 4s ease-in-out 1.2s infinite;
     filter:drop-shadow(0 12px 24px rgba(0,0,0,.55));
 }
 .card{
@@ -252,825 +252,7 @@ body{
     15%{opacity:.9}
     100%{opacity:0;transform:translateY(-180px) scale(1.2) rotate(15deg)}
 }
-
-/* Mobile readability */
-@media(max-width:600px){
-    .card{
-        width:min(92vw,700px);
-        padding:22px 18px;
-    }
-
-    .card .title{
-        line-height:1.12;
-    }
-
-    .card .subtitle{
-        line-height:1.6;
-    }
-}
-
-
-/* ============================================================
-   FINAL SISTER PHOTO POSITION FIX
-   ============================================================ */
-
-.sister-bond-card{
-    width:min(920px,92vw) !important;
-    max-width:920px !important;
-    margin:0 auto !important;
-    padding:28px 24px 34px !important;
-    box-sizing:border-box !important;
-    display:flex !important;
-    flex-direction:column !important;
-    align-items:center !important;
-    justify-content:center !important;
-}
-
-.sister-bond-card img.sister-main-photo{
-    width:min(430px,72vw) !important;
-    height:min(430px,52vh) !important;
-    max-width:430px !important;
-    max-height:430px !important;
-    object-fit:contain !important;
-    object-position:center center !important;
-    display:block !important;
-    margin:18px auto 22px !important;
-    border-radius:22px !important;
-    box-shadow:
-        0 18px 55px rgba(0,0,0,.55),
-        0 0 35px rgba(255,105,180,.22) !important;
-}
-
-.sister-bond-card .title{
-    width:100% !important;
-    text-align:center !important;
-    margin-bottom:8px !important;
-}
-
-.sister-bond-card .subtitle{
-    width:min(720px,88vw) !important;
-    text-align:center !important;
-    margin-left:auto !important;
-    margin-right:auto !important;
-}
-
-@media (max-width:700px){
-    .sister-bond-card{
-        width:94vw !important;
-        padding:20px 14px 26px !important;
-    }
-
-    .sister-bond-card img.sister-main-photo{
-        width:min(78vw,360px) !important;
-        height:min(48vh,360px) !important;
-        margin:12px auto 18px !important;
-    }
-}
-/* =========================================================
-   FINAL TEXT + PHOTO LAYOUT FIX
-   Text stays readable, photos stay below text.
-   ========================================================= */
-
-#content{
-    position:relative !important;
-    z-index:20 !important;
-    width:100% !important;
-    height:100% !important;
-}
-
-#particles{
-    z-index:2 !important;
-    pointer-events:none !important;
-}
-
-#vignette{
-    z-index:3 !important;
-    pointer-events:none !important;
-}
-
-.visual-slide{
-    position:relative !important;
-    width:100% !important;
-    height:100% !important;
-    display:flex !important;
-    flex-direction:column !important;
-    align-items:center !important;
-    justify-content:flex-start !important;
-    overflow:hidden !important;
-    padding-top:clamp(35px,6vh,80px) !important;
-    box-sizing:border-box !important;
-}
-
-.visual-slide .slide-text{
-    position:relative !important;
-    z-index:30 !important;
-    width:min(92vw,1100px) !important;
-    text-align:center !important;
-    flex-shrink:0 !important;
-}
-
-.visual-slide .title{
-    position:relative !important;
-    z-index:31 !important;
-    margin:0 0 12px !important;
-    line-height:1.08 !important;
-    text-shadow:
-        0 3px 8px rgba(0,0,0,.95),
-        0 0 18px rgba(0,0,0,.8) !important;
-}
-
-.visual-slide .subtitle{
-    position:relative !important;
-    z-index:31 !important;
-    max-width:1000px !important;
-    margin:0 auto !important;
-    line-height:1.35 !important;
-    text-shadow:
-        0 3px 8px rgba(0,0,0,.95),
-        0 0 14px rgba(0,0,0,.85) !important;
-}
-
-.visual-slide .visual-area{
-    position:absolute !important;
-    z-index:10 !important;
-    left:0 !important;
-    right:0 !important;
-    bottom:2vh !important;
-    width:100% !important;
-    height:48vh !important;
-    min-height:280px !important;
-    display:flex !important;
-    justify-content:center !important;
-    align-items:flex-end !important;
-    pointer-events:none !important;
-}
-
-.visual-slide .character{
-    position:relative !important;
-    z-index:11 !important;
-    display:block !important;
-    width:min(52vw,720px) !important;
-    max-width:720px !important;
-    max-height:46vh !important;
-    height:auto !important;
-    object-fit:contain !important;
-    margin:0 !important;
-    transform:none !important;
-    filter:drop-shadow(0 12px 22px rgba(0,0,0,.55)) !important;
-}
-
-.cake-slide .visual-area{
-    justify-content:center !important;
-    gap:clamp(10px,3vw,45px) !important;
-}
-
-.cake-slide .character{
-    width:min(48vw,680px) !important;
-    max-height:43vh !important;
-}
-
-.cake-slide .cake{
-    position:relative !important;
-    z-index:12 !important;
-    display:block !important;
-    width:min(22vw,300px) !important;
-    max-height:34vh !important;
-    height:auto !important;
-    object-fit:contain !important;
-    margin:0 !important;
-    filter:drop-shadow(0 12px 20px rgba(0,0,0,.6)) !important;
-}
-
-.celebrate-slide .visual-area{
-    height:43vh !important;
-    bottom:1vh !important;
-}
-
-.celebrate-slide .character{
-    width:min(62vw,850px) !important;
-    max-height:42vh !important;
-}
-
-.visual-slide img{
-    pointer-events:none !important;
-}
-
-/* Keep navigation controls above everything */
-#controls{
-    z-index:100 !important;
-}
-
-/* Mobile */
-@media(max-width:700px){
-
-    .visual-slide{
-        padding-top:25px !important;
-    }
-
-    .visual-slide .slide-text{
-        width:94vw !important;
-    }
-
-    .visual-slide .title{
-        font-size:clamp(30px,9vw,48px) !important;
-    }
-
-    .visual-slide .subtitle{
-        font-size:clamp(18px,5vw,28px) !important;
-    }
-
-    .visual-slide .visual-area{
-        height:42vh !important;
-        bottom:3vh !important;
-    }
-
-    .cake-slide .character{
-        width:62vw !important;
-        max-height:34vh !important;
-    }
-
-    .cake-slide .cake{
-        width:25vw !important;
-        max-height:28vh !important;
-    }
-
-    .celebrate-slide .character{
-        width:82vw !important;
-        max-height:36vh !important;
-    }
-}
-
-/* ===== FINAL TEXT VISIBILITY FIX ===== */
-
-.cake-slide-fixed,
-.celebrate-slide-fixed{
-    position:relative !important;
-    width:100% !important;
-    height:100% !important;
-    overflow:hidden !important;
-}
-
-/* TEXT — ALWAYS VISIBLE AND ABOVE PHOTO */
-.fixed-slide-text{
-    position:absolute !important;
-    top:5vh !important;
-    left:5% !important;
-    width:90% !important;
-    z-index:500 !important;
-    text-align:center !important;
-    display:block !important;
-    visibility:visible !important;
-    opacity:1 !important;
-    pointer-events:none !important;
-}
-
-.fixed-slide-text .title{
-    position:relative !important;
-    z-index:501 !important;
-    display:block !important;
-    visibility:visible !important;
-    opacity:1 !important;
-    margin-bottom:18px !important;
-    line-height:1.1 !important;
-    text-shadow:
-        0 4px 10px #000,
-        0 0 20px rgba(0,0,0,.9) !important;
-}
-
-.fixed-slide-text .subtitle{
-    position:relative !important;
-    z-index:502 !important;
-    display:block !important;
-    visibility:visible !important;
-    opacity:1 !important;
-    line-height:1.35 !important;
-    text-shadow:
-        0 4px 10px #000,
-        0 0 18px rgba(0,0,0,.95) !important;
-}
-
-/* PHOTO — BELOW TEXT */
-.fixed-slide-images{
-    position:absolute !important;
-    left:0 !important;
-    right:0 !important;
-    bottom:2vh !important;
-    width:100% !important;
-    height:48vh !important;
-    z-index:50 !important;
-    display:flex !important;
-    align-items:flex-end !important;
-    justify-content:center !important;
-    pointer-events:none !important;
-}
-
-/* THREE-PHOTO COMPOSITION */
-.fixed-slide-images .character{
-    position:relative !important;
-    z-index:51 !important;
-    display:block !important;
-    width:min(64vw,850px) !important;
-    max-width:850px !important;
-    max-height:44vh !important;
-    height:auto !important;
-    object-fit:contain !important;
-    margin:0 auto !important;
-}
-
-/* CAKE */
-.cake-images{
-    gap:25px !important;
-}
-
-.cake-images .character{
-    width:min(58vw,760px) !important;
-    max-height:42vh !important;
-}
-
-.cake-images .cake{
-    position:relative !important;
-    z-index:52 !important;
-    width:min(22vw,300px) !important;
-    max-height:32vh !important;
-    height:auto !important;
-    object-fit:contain !important;
-}
-
-/* PARTICLES ALWAYS BEHIND TEXT */
-#particles{
-    z-index:5 !important;
-    pointer-events:none !important;
-}
-
-#content{
-    z-index:100 !important;
-}
-
-#controls{
-    z-index:1000 !important;
-}
-
-/* MOBILE */
-@media(max-width:700px){
-
-    .fixed-slide-text{
-        top:3vh !important;
-        left:3% !important;
-        width:94% !important;
-    }
-
-    .fixed-slide-text .title{
-        font-size:clamp(30px,9vw,48px) !important;
-    }
-
-    .fixed-slide-text .subtitle{
-        font-size:clamp(17px,4.8vw,25px) !important;
-    }
-
-    .fixed-slide-images{
-        height:43vh !important;
-        bottom:3vh !important;
-    }
-
-    .fixed-slide-images .character{
-        width:82vw !important;
-        max-height:37vh !important;
-    }
-
-    .cake-images .character{
-        width:62vw !important;
-    }
-
-    .cake-images .cake{
-        width:25vw !important;
-    }
-}
-/* =========================================================
-   FINAL TEXT + PHOTO LAYOUT FIX
-   Text stays readable, photos stay below text.
-   ========================================================= */
-
-#content{
-    position:relative !important;
-    z-index:20 !important;
-    width:100% !important;
-    height:100% !important;
-}
-
-#particles{
-    z-index:2 !important;
-    pointer-events:none !important;
-}
-
-#vignette{
-    z-index:3 !important;
-    pointer-events:none !important;
-}
-
-.visual-slide{
-    position:relative !important;
-    width:100% !important;
-    height:100% !important;
-    display:flex !important;
-    flex-direction:column !important;
-    align-items:center !important;
-    justify-content:flex-start !important;
-    overflow:hidden !important;
-    padding-top:clamp(35px,6vh,80px) !important;
-    box-sizing:border-box !important;
-}
-
-.visual-slide .slide-text{
-    position:relative !important;
-    z-index:30 !important;
-    width:min(92vw,1100px) !important;
-    text-align:center !important;
-    flex-shrink:0 !important;
-}
-
-.visual-slide .title{
-    position:relative !important;
-    z-index:31 !important;
-    margin:0 0 12px !important;
-    line-height:1.08 !important;
-    text-shadow:
-        0 3px 8px rgba(0,0,0,.95),
-        0 0 18px rgba(0,0,0,.8) !important;
-}
-
-.visual-slide .subtitle{
-    position:relative !important;
-    z-index:31 !important;
-    max-width:1000px !important;
-    margin:0 auto !important;
-    line-height:1.35 !important;
-    text-shadow:
-        0 3px 8px rgba(0,0,0,.95),
-        0 0 14px rgba(0,0,0,.85) !important;
-}
-
-.visual-slide .visual-area{
-    position:absolute !important;
-    z-index:10 !important;
-    left:0 !important;
-    right:0 !important;
-    bottom:2vh !important;
-    width:100% !important;
-    height:48vh !important;
-    min-height:280px !important;
-    display:flex !important;
-    justify-content:center !important;
-    align-items:flex-end !important;
-    pointer-events:none !important;
-}
-
-.visual-slide .character{
-    position:relative !important;
-    z-index:11 !important;
-    display:block !important;
-    width:min(52vw,720px) !important;
-    max-width:720px !important;
-    max-height:46vh !important;
-    height:auto !important;
-    object-fit:contain !important;
-    margin:0 !important;
-    transform:none !important;
-    filter:drop-shadow(0 12px 22px rgba(0,0,0,.55)) !important;
-}
-
-.cake-slide .visual-area{
-    justify-content:center !important;
-    gap:clamp(10px,3vw,45px) !important;
-}
-
-.cake-slide .character{
-    width:min(48vw,680px) !important;
-    max-height:43vh !important;
-}
-
-.cake-slide .cake{
-    position:relative !important;
-    z-index:12 !important;
-    display:block !important;
-    width:min(22vw,300px) !important;
-    max-height:34vh !important;
-    height:auto !important;
-    object-fit:contain !important;
-    margin:0 !important;
-    filter:drop-shadow(0 12px 20px rgba(0,0,0,.6)) !important;
-}
-
-.celebrate-slide .visual-area{
-    height:43vh !important;
-    bottom:1vh !important;
-}
-
-.celebrate-slide .character{
-    width:min(62vw,850px) !important;
-    max-height:42vh !important;
-}
-
-.visual-slide img{
-    pointer-events:none !important;
-}
-
-/* Keep navigation controls above everything */
-#controls{
-    z-index:100 !important;
-}
-
-/* Mobile */
-@media(max-width:700px){
-
-    .visual-slide{
-        padding-top:25px !important;
-    }
-
-    .visual-slide .slide-text{
-        width:94vw !important;
-    }
-
-    .visual-slide .title{
-        font-size:clamp(30px,9vw,48px) !important;
-    }
-
-    .visual-slide .subtitle{
-        font-size:clamp(18px,5vw,28px) !important;
-    }
-
-    .visual-slide .visual-area{
-        height:42vh !important;
-        bottom:3vh !important;
-    }
-
-    .cake-slide .character{
-        width:62vw !important;
-        max-height:34vh !important;
-    }
-
-    .cake-slide .cake{
-        width:25vw !important;
-        max-height:28vh !important;
-    }
-
-    .celebrate-slide .character{
-        width:82vw !important;
-        max-height:36vh !important;
-    }
-}
-
-/* ===== IMAGE POSITION ONLY — KEEP ALL TEXT ===== */
-
-.cake-slide-fixed .fixed-slide-images,
-.celebrate-slide-fixed .fixed-slide-images,
-.visual-slide .visual-area{
-    position:absolute !important;
-    left:0 !important;
-    right:0 !important;
-    bottom:0 !important;
-    top:auto !important;
-    height:38vh !important;
-    z-index:10 !important;
-    display:flex !important;
-    align-items:flex-end !important;
-    justify-content:center !important;
-}
-
-/* Images stay BELOW the text */
-.cake-slide-fixed .fixed-slide-images img,
-.celebrate-slide-fixed .fixed-slide-images img,
-.visual-slide .visual-area img{
-    position:relative !important;
-    z-index:10 !important;
-    max-height:35vh !important;
-}
-
-/* Keep text clearly ABOVE images */
-.cake-slide-fixed .fixed-slide-text,
-.celebrate-slide-fixed .fixed-slide-text,
-.visual-slide .slide-text{
-    position:relative !important;
-    z-index:200 !important;
-}
-
-/* Don't let particles cover text */
-#particles{
-    z-index:2 !important;
-}
-
-#content{
-    position:relative !important;
-    z-index:100 !important;
-}
-
-#content .title,
-#content .subtitle{
-    position:relative !important;
-    z-index:300 !important;
-}
-
-/* Cake */
-.cake-slide-fixed .cake-images{
-    gap:20px !important;
-}
-
-.cake-slide-fixed .cake{
-    max-width:260px !important;
-}
-
-/* Mobile */
-@media(max-width:700px){
-    .cake-slide-fixed .fixed-slide-images,
-    .celebrate-slide-fixed .fixed-slide-images,
-    .visual-slide .visual-area{
-        height:34vh !important;
-    }
-
-    .cake-slide-fixed .fixed-slide-images img,
-    .celebrate-slide-fixed .fixed-slide-images img,
-    .visual-slide .visual-area img{
-        max-height:31vh !important;
-    }
-}
-/* =========================================================
-   FINAL TEXT + PHOTO LAYOUT FIX
-   Text stays readable, photos stay below text.
-   ========================================================= */
-
-#content{
-    position:relative !important;
-    z-index:20 !important;
-    width:100% !important;
-    height:100% !important;
-}
-
-#particles{
-    z-index:2 !important;
-    pointer-events:none !important;
-}
-
-#vignette{
-    z-index:3 !important;
-    pointer-events:none !important;
-}
-
-.visual-slide{
-    position:relative !important;
-    width:100% !important;
-    height:100% !important;
-    display:flex !important;
-    flex-direction:column !important;
-    align-items:center !important;
-    justify-content:flex-start !important;
-    overflow:hidden !important;
-    padding-top:clamp(35px,6vh,80px) !important;
-    box-sizing:border-box !important;
-}
-
-.visual-slide .slide-text{
-    position:relative !important;
-    z-index:30 !important;
-    width:min(92vw,1100px) !important;
-    text-align:center !important;
-    flex-shrink:0 !important;
-}
-
-.visual-slide .title{
-    position:relative !important;
-    z-index:31 !important;
-    margin:0 0 12px !important;
-    line-height:1.08 !important;
-    text-shadow:
-        0 3px 8px rgba(0,0,0,.95),
-        0 0 18px rgba(0,0,0,.8) !important;
-}
-
-.visual-slide .subtitle{
-    position:relative !important;
-    z-index:31 !important;
-    max-width:1000px !important;
-    margin:0 auto !important;
-    line-height:1.35 !important;
-    text-shadow:
-        0 3px 8px rgba(0,0,0,.95),
-        0 0 14px rgba(0,0,0,.85) !important;
-}
-
-.visual-slide .visual-area{
-    position:absolute !important;
-    z-index:10 !important;
-    left:0 !important;
-    right:0 !important;
-    bottom:2vh !important;
-    width:100% !important;
-    height:48vh !important;
-    min-height:280px !important;
-    display:flex !important;
-    justify-content:center !important;
-    align-items:flex-end !important;
-    pointer-events:none !important;
-}
-
-.visual-slide .character{
-    position:relative !important;
-    z-index:11 !important;
-    display:block !important;
-    width:min(52vw,720px) !important;
-    max-width:720px !important;
-    max-height:46vh !important;
-    height:auto !important;
-    object-fit:contain !important;
-    margin:0 !important;
-    transform:none !important;
-    filter:drop-shadow(0 12px 22px rgba(0,0,0,.55)) !important;
-}
-
-.cake-slide .visual-area{
-    justify-content:center !important;
-    gap:clamp(10px,3vw,45px) !important;
-}
-
-.cake-slide .character{
-    width:min(48vw,680px) !important;
-    max-height:43vh !important;
-}
-
-.cake-slide .cake{
-    position:relative !important;
-    z-index:12 !important;
-    display:block !important;
-    width:min(22vw,300px) !important;
-    max-height:34vh !important;
-    height:auto !important;
-    object-fit:contain !important;
-    margin:0 !important;
-    filter:drop-shadow(0 12px 20px rgba(0,0,0,.6)) !important;
-}
-
-.celebrate-slide .visual-area{
-    height:43vh !important;
-    bottom:1vh !important;
-}
-
-.celebrate-slide .character{
-    width:min(62vw,850px) !important;
-    max-height:42vh !important;
-}
-
-.visual-slide img{
-    pointer-events:none !important;
-}
-
-/* Keep navigation controls above everything */
-#controls{
-    z-index:100 !important;
-}
-
-/* Mobile */
-@media(max-width:700px){
-
-    .visual-slide{
-        padding-top:25px !important;
-    }
-
-    .visual-slide .slide-text{
-        width:94vw !important;
-    }
-
-    .visual-slide .title{
-        font-size:clamp(30px,9vw,48px) !important;
-    }
-
-    .visual-slide .subtitle{
-        font-size:clamp(18px,5vw,28px) !important;
-    }
-
-    .visual-slide .visual-area{
-        height:42vh !important;
-        bottom:3vh !important;
-    }
-
-    .cake-slide .character{
-        width:62vw !important;
-        max-height:34vh !important;
-    }
-
-    .cake-slide .cake{
-        width:25vw !important;
-        max-height:28vh !important;
-    }
-
-    .celebrate-slide .character{
-        width:82vw !important;
-        max-height:36vh !important;
-    }
-}
 </style>
-<style>
-</style>
-
-
-
 </head>
 
 <body>
@@ -1114,58 +296,65 @@ const slides = [
     {
         type:"birthday",
         bg:"assets/background_birthday.png",
-        title:"🎂 Happy Birthday, Avantika! 🎂",
-        subtitle:"Today is your day — full of smiles, happiness and beautiful memories."
+        title:"🎂 Happy Birthday, My Dear Sister Avantika! 🎂",
+        subtitle:"Today is all about celebrating you, your beautiful heart, your smile and the special place you have in my life."
     },
     {
         type:"cake",
         bg:"assets/background_birthday.png",
-        girl:"assets/downloaded_photo_1.png",
+        girl:"assets/girl_happy.png",
         cake:"assets/cake.png",
-        title:"🎂 A Special Celebration for My Sister", subtitle:"Because the most special sister deserves a beautiful birthday celebration filled with love, laughter and happiness."
+        title:"🎂 A Special Celebration for My Sister",
+        subtitle:"Because a wonderful sister like you deserves a birthday filled with love, laughter, happiness and beautiful memories."
     },
     {
         type:"wish",
         bg:"assets/background_garden.png",
-        title:"🌸 My Birthday Wish For My Sister", text:"May your birthday bring you endless happiness, beautiful memories and everything your heart wishes for. May you always keep smiling, keep shining and achieve every dream you have. Stay happy and blessed, my dear sister."
+        title:"🌸 My Special Birthday Wish For My Sister", text:"May your life always be filled with happiness, success, love and countless beautiful moments. May every dream in your heart come true. Keep smiling and always stay blessed, my dear sister."
     },
     {
         type:"celebrate",
         bg:"assets/background_birthday.png",
-        girl:"assets/downloaded_photo_2.png",
-        title:"🎉 Keep Smiling, Sister!", subtitle:"Keep shining, keep growing, and keep being the wonderful sister you are. Your happiness will always mean so much to me."
+        girl:"assets/girl_celebrate.png",
+        title:"🎉 Keep Smiling, My Sister!",
+        subtitle:"Keep shining, keep growing and keep being the wonderful person you are. Your happiness will always be special to me."
     },
     {
         type:"memory",
         bg:"assets/background_garden.png",
-        title:"🌿 Our Beautiful Sister Memories", text:"Every laugh, every little conversation and every beautiful moment becomes a memory I will always cherish. Having a sister like you makes life more special."
+        title:"🌿 Our Beautiful Sister Memories",
+        text:"Every laugh, every conversation and every little moment with you becomes a memory I will always cherish. Having you as my sister makes my journey more beautiful."
     },
     {
         type:"message",
         bg:"assets/background_garden.png",
-        title:"💌 A Heartfelt Message for My Sister", text:"No matter how much life changes, the bond between a brother and sister remains special. Thank you for always being such an important and beautiful part of my life. I am truly lucky to have you as my sister."
+        title:"💌 A Heartfelt Message For My Sister",
+        text:"No matter how much life changes, the bond between a brother and sister remains precious. Thank you for being such an important part of my life. I am truly grateful and lucky to have a sister like you."
     },
     {
         type:"you",
         bg:"assets/background_garden.png",
-        title:"✨ You Are So Special, Sister", text:"You are kind, strong, caring, funny and truly precious. More than just a sister, you are someone whose presence makes life brighter and happier."
+        title:"✨ You Are Truly Special, Sister",
+        text:"You are kind, caring, strong, funny and precious. Your presence makes life brighter, and I will always be proud to call you my sister."
     },
     {
         type:"adventure",
         bg:"assets/background_garden.png",
-        title:"🌸 More Beautiful Moments Ahead", text:"More laughs, more crazy conversations, more unforgettable memories and many more beautiful moments to celebrate together. Our sister bond has many wonderful chapters ahead."
+        title:"🌸 More Beautiful Moments Ahead",
+        text:"More laughs, more conversations, more memories and many more beautiful moments to celebrate together. Our brother-sister bond has many wonderful chapters ahead."
     },
     {
-        type:"Sister Bond",
+        type:"sister",
         bg:"assets/background_finale.png",
         title:"👭 Sister Bond",
-        text:"Thank you for being such a special sister in my life. Here's to our beautiful bond, countless memories, endless laughter and many more wonderful years together."
+        text:"Being your brother is one of the special gifts of my life. You are not just my sister, you are a beautiful part of my happiness, my memories and my journey. I hope your birthday brings you endless smiles, love, success and all the happiness you truly deserve. Happy Birthday, my dear sister! ❤️"
     },
     {
         type:"finale",
         bg:"assets/background_finale.png",
-        title:"🌟 Happy Birthday, My Dear Sister Avantika! 🌟", subtitle:"Stay happy, stay blessed, keep smiling and keep shining. I am always grateful to have a wonderful sister like you.",
-        text:"— Your Sister ❤️"
+        title:"🌟 Happy Birthday, My Dear Sister Avantika! 🌟",
+        subtitle:"Stay happy, stay blessed, keep smiling and keep shining. I am always grateful to have a wonderful sister like you.",
+        text:"— Your Brother ❤️"
     }
 ];
 
@@ -1263,40 +452,18 @@ function render(){
     }
     else if(s.type==="cake"){
         html=`
-            <div class="cake-slide-fixed">
-                <div class="fixed-slide-text">
-                    <div class="title" style="font-size:clamp(34px,5vw,70px)">
-                        ${s.title}
-                    </div>
-                    <div class="subtitle">
-                        ${s.subtitle}
-                    </div>
-                </div>
-
-                <div class="fixed-slide-images cake-images">
-                    <img class="character" src="${s.girl}" alt="Birthday photos">
-                    <img class="cake" src="${s.cake}" alt="Birthday cake">
-                </div>
-            </div>
+            <div class="title" style="font-size:clamp(34px,5vw,70px)">${s.title}</div>
+            <div class="subtitle">${s.subtitle}</div>
+            <img class="character" src="${s.girl}">
+            <img class="cake" src="${s.cake}">
         `;
         makeHearts(10);
     }
     else if(s.type==="celebrate"){
         html=`
-            <div class="celebrate-slide-fixed">
-                <div class="fixed-slide-text">
-                    <div class="title">
-                        ${s.title}
-                    </div>
-                    <div class="subtitle">
-                        ${s.subtitle}
-                    </div>
-                </div>
-
-                <div class="fixed-slide-images celebrate-images">
-                    <img class="character" src="${s.girl}" alt="Sister photos">
-                </div>
-            </div>
+            <div class="title">${s.title}</div>
+            <div class="subtitle">${s.subtitle}</div>
+            <img class="character" src="${s.girl}">
         `;
         burst();
     }
@@ -1308,15 +475,6 @@ function render(){
             </div>
         `;
         makeSparks(35);
-    }
-    else if(s.type==="Sister Bond"){
-        html=`
-            <div class="card sister-bond-card">
-                <div class="title" style="font-size:clamp(34px,5vw,62px)">${s.title}</div>
-                <img class="sister-main-photo" src="${s.card}" alt="Sister">
-                <div class="subtitle">${s.text}</div>
-            </div>
-        `;
     }
     else if(s.type==="finale"){
         html=`
@@ -1424,146 +582,8 @@ stage.addEventListener("touchend",e=>{
     }
 },{passive:true});
 </script>
-
-<!-- FINAL MUSIC FIX -->
-<audio id="birthdayMusic" preload="auto">
-    <source src="assets/music/birthday.mp3" type="audio/mpeg">
-    <source src="assets/music/birthday.ogg" type="audio/ogg">
-</audio>
-
-<script>
-(function(){
-
-    const music = document.getElementById("birthdayMusic");
-
-    if(!music) return;
-
-    music.loop = false;
-    music.volume = 0.85;
-
-    let musicStarted = false;
-
-    function startBirthdayMusic(){
-        if(musicStarted) return;
-
-        const p = music.play();
-
-        if(p && typeof p.then === "function"){
-            p.then(function(){
-                musicStarted = true;
-                console.log("[Music] Birthday music started");
-            }).catch(function(err){
-                console.log("[Music] Waiting for user interaction:", err);
-            });
-        }else{
-            musicStarted = true;
-        }
-    }
-
-    /*
-       Try immediately.
-       If browser blocks autoplay, first user interaction
-       will start the music.
-    */
-    startBirthdayMusic();
-
-    ["click","pointerdown","touchstart","keydown"].forEach(function(eventName){
-        window.addEventListener(
-            eventName,
-            startBirthdayMusic,
-            {once:false, passive:true}
-        );
-    });
-
-})();
-</script>
-
-
-
-
-<style id="PNG_TEXT_FINAL">
-/* =====================================================
-   ONLY PNG SLIDES
-   TEXT UP
-   PHOTOS UNCHANGED
-   OTHER SLIDES UNCHANGED
-   ===================================================== */
-
-.cake-slide-fixed > .fixed-slide-text,
-.celebrate-slide-fixed > .fixed-slide-text {
-    position: absolute !important;
-    top: -8vh !important;
-    left: 3% !important;
-    width: 94% !important;
-    z-index: 999999 !important;
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    transform: none !important;
-    margin: 0 !important;
-    text-align: center !important;
-}
-
-/* PHOTO — DO NOT MOVE */
-.cake-slide-fixed > .fixed-slide-images,
-.celebrate-slide-fixed > .fixed-slide-images {
-    transform: none !important;
-}
-
-/* PHOTO ITSELF — DO NOT MOVE */
-.cake-slide-fixed > .fixed-slide-images img,
-.celebrate-slide-fixed > .fixed-slide-images img {
-    transform: none !important;
-}
-</style>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
