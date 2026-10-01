@@ -501,6 +501,15 @@ img{
         margin:8px auto !important;
     }
 }
+/* ===== FINAL MOBILE CAKE SIZE FIX ===== */
+@media (max-width:600px){
+    .cake{
+        width:190px !important;
+        max-width:42vw !important;
+        height:auto !important;
+        object-fit:contain !important;
+    }
+}
 </style>
 </head>
 
@@ -570,7 +579,7 @@ const slides = [
     },
     {
         type:"memory",
-        bg:"assets/background_garden.png",
+        bg:"assets/frie_card.png",
         title:"🌿 Our Beautiful Sister Memories",
         text:"Every laugh, every conversation and every little moment with you becomes a memory I will always cherish. Having you as my sister makes my journey more beautiful."
     },
@@ -705,7 +714,7 @@ function render(){
             <div class="title" style="font-size:clamp(34px,5vw,70px)">${s.title}</div>
             <div class="subtitle">${s.subtitle}</div>
             <img class="character" src="${s.girl}?v=10">
-            <img class="cake" src="${s.cake}?v=11" style="width:150px !important; max-width:150px !important; height:auto !important; object-fit:contain !important;">
+            <img class="cake" src="${s.cake}?v=11" style="width:150px !important;max-width:150px !important;height:auto !important;object-fit:contain !important;">
         `;
         makeHearts(10);
     }
@@ -878,21 +887,3 @@ stage.addEventListener("touchend",e=>{
 </script>
 </body>
 </html>
-/* ===== FINAL MOBILE CAKE SIZE FIX ===== */
-@media (max-width:600px){
-    .cake{
-        width:190px !important;
-        max-width:42vw !important;
-        height:auto !important;
-        object-fit:contain !important;
-    }
-}
-/* ===== FINAL MOBILE CAKE SIZE FIX ===== */
-@media (max-width:600px){
-    .cake{
-        width:190px !important;
-        max-width:42vw !important;
-        height:auto !important;
-        object-fit:contain !important;
-    }
-}
