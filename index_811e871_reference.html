@@ -1,0 +1,897 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Best Sister Theatre</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#05030b;
+    font-family:Georgia,"Times New Roman",serif;
+}
+body{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+#stage{
+    position:relative;
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+    background:#05030b;
+}
+#bg{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:0;
+    transform:scale(1.04);
+    transition:opacity 1.2s ease,transform 8s ease;
+}
+#vignette{
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(circle at center,
+        rgba(0,0,0,0) 35%,
+        rgba(0,0,0,.28) 68%,
+        rgba(0,0,0,.72) 100%);
+    pointer-events:none;
+}
+#particles{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+}
+#content{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:30px;
+    z-index:5;
+}
+.title{
+    color:white;
+    font-size:clamp(42px,7vw,92px);
+    font-weight:700;
+    line-height:1.05;
+    text-shadow:0 4px 28px rgba(0,0,0,.85);
+    animation:titleIn 1.2s ease both;
+}
+.subtitle{
+    margin-top:18px;
+    color:#fff;
+    font-size:clamp(18px,2.3vw,32px);
+    line-height:1.5;
+    max-width:950px;
+    text-shadow:0 3px 18px rgba(0,0,0,.9);
+    animation:fadeUp 1.2s .25s ease both;
+}
+.small{
+    margin-top:24px;
+    color:rgba(255,255,255,.88);
+    font-size:clamp(14px,1.5vw,20px);
+}
+.count{
+    color:white;
+    font-size:clamp(100px,22vw,240px);
+    font-weight:900;
+    text-shadow:0 0 40px rgba(255,255,255,.55);
+    animation:countIn .95s ease both;
+}
+.character{
+    position:absolute;
+    bottom:-2%;
+    max-height:78%;
+    max-width:42%;
+    object-fit:contain;
+    filter:drop-shadow(0 18px 30px rgba(0,0,0,.5));
+    animation:characterIn 1s ease both, float 3.8s ease-in-out 1s infinite;
+}
+.cake{
+    position:absolute;
+    bottom:10%;
+    right:8%;
+    width:min(24vw,300px);
+    max-height:42%;
+    object-fit:contain;
+    animation:cakeIn 1s .25s ease both, float 4s ease-in-out 1.2s infinite;
+    filter:drop-shadow(0 12px 24px rgba(0,0,0,.55));
+}
+.card{
+    width:min(850px,88vw);
+    padding:42px 48px;
+    border-radius:28px;
+    background:rgba(7,5,20,.66);
+    border:1px solid rgba(255,255,255,.22);
+    backdrop-filter:blur(12px);
+    box-shadow:0 18px 70px rgba(0,0,0,.45);
+    animation:cardIn 1s ease both;
+}
+.card p{
+    color:white;
+    font-size:clamp(20px,2.4vw,34px);
+    line-height:1.65;
+    text-shadow:0 2px 10px rgba(0,0,0,.7);
+}
+.highlight{
+    color:#ffe39b;
+}
+#controls{
+    position:absolute;
+    left:50%;
+    bottom:22px;
+    transform:translateX(-50%);
+    z-index:20;
+    padding:10px 16px;
+    border-radius:999px;
+    background:rgba(0,0,0,.42);
+    border:1px solid rgba(255,255,255,.15);
+    color:rgba(255,255,255,.8);
+    font:14px Arial,sans-serif;
+    backdrop-filter:blur(8px);
+}
+#start{
+    position:absolute;
+    inset:0;
+    z-index:50;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    background:
+      radial-gradient(circle at center,#241445 0%,#0b0715 45%,#030207 100%);
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+#start h1{
+    font-size:clamp(38px,6vw,78px);
+    margin-bottom:16px;
+}
+#start p{
+    max-width:700px;
+    line-height:1.6;
+    opacity:.82;
+    font:18px Arial,sans-serif;
+}
+#startBtn{
+    margin-top:30px;
+    border:0;
+    cursor:pointer;
+    color:white;
+    padding:16px 34px;
+    border-radius:999px;
+    font-size:20px;
+    background:linear-gradient(135deg,#7d3cff,#d44cff);
+    box-shadow:0 12px 40px rgba(143,72,255,.4);
+    transition:transform .2s ease,box-shadow .2s ease;
+}
+#startBtn:hover{
+    transform:translateY(-2px) scale(1.02);
+    box-shadow:0 16px 48px rgba(143,72,255,.55);
+}
+.flash{
+    position:absolute;
+    inset:0;
+    z-index:15;
+    pointer-events:none;
+    background:white;
+    opacity:0;
+}
+.spark{
+    position:absolute;
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:white;
+    box-shadow:0 0 14px white;
+    pointer-events:none;
+}
+.heart{
+    position:absolute;
+    font-size:28px;
+    opacity:0;
+    pointer-events:none;
+    animation:heartRise 3s ease-out forwards;
+}
+#progress{
+    position:absolute;
+    left:0;
+    bottom:0;
+    height:3px;
+    background:rgba(255,255,255,.8);
+    z-index:30;
+    width:0%;
+    transition:width .1s linear;
+}
+
+@keyframes titleIn{
+    from{opacity:0;transform:translateY(35px) scale(.96)}
+    to{opacity:1;transform:none}
+}
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(25px)}
+    to{opacity:1;transform:none}
+}
+@keyframes countIn{
+    0%{opacity:0;transform:scale(1.45)}
+    70%{opacity:1;transform:scale(.97)}
+    100%{opacity:1;transform:scale(1)}
+}
+@keyframes characterIn{
+    from{opacity:0;transform:translateY(60px)}
+    to{opacity:1;transform:none}
+}
+@keyframes cakeIn{
+    from{opacity:0;transform:translateY(55px) scale(.8)}
+    to{opacity:1;transform:none}
+}
+@keyframes cardIn{
+    from{opacity:0;transform:translateY(35px) scale(.97)}
+    to{opacity:1;transform:none}
+}
+@keyframes float{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-10px)}
+}
+@keyframes heartRise{
+    0%{opacity:0;transform:translateY(20px) scale(.7)}
+    15%{opacity:.9}
+    100%{opacity:0;transform:translateY(-180px) scale(1.2) rotate(15deg)}
+}
+
+/* ===== FINAL SISTER SLIDE CSS ===== */
+.sister-slide{
+    width:min(1100px,92vw);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    text-align:center;
+    box-sizing:border-box;
+    overflow:visible;
+}
+
+.sister-girl{
+    width:min(420px,58vw);
+    height:auto;
+    max-width:90vw;
+    max-height:55vh;
+    object-fit:contain;
+    display:block;
+    visibility:visible;
+    opacity:1;
+    margin:0 auto;
+    flex-shrink:0;
+    filter:drop-shadow(0 15px 30px rgba(0,0,0,.45));
+}
+
+.sister-message{
+    width:min(900px,90vw);
+    padding:12px 22px;
+    border-radius:22px;
+    background:rgba(15,8,30,.72);
+    backdrop-filter:blur(8px);
+    box-shadow:0 10px 35px rgba(0,0,0,.35);
+    box-sizing:border-box;
+}
+
+.sister-message .title{
+    font-size:clamp(26px,4vw,50px);
+    margin-bottom:8px;
+}
+
+.sister-text{
+    font-size:clamp(15px,1.6vw,22px);
+    line-height:1.5;
+    color:#fff;
+    max-width:820px;
+    margin:auto;
+}
+
+@media (max-width:600px){
+    .sister-slide{
+        width:100%;
+        max-width:100%;
+        min-height:100%;
+        padding:8px;
+        gap:10px;
+    }
+
+    .sister-girl{
+        width:min(300px,78vw);
+        max-width:78vw;
+        height:auto;
+        max-height:48vh;
+        object-fit:contain;
+        display:block;
+        visibility:visible;
+        opacity:1;
+        margin:0 auto;
+    }
+
+    .sister-message{
+        width:92vw;
+        max-width:92vw;
+        padding:10px 14px;
+        margin:0 auto;
+    }
+
+    .sister-message .title{
+        font-size:clamp(22px,6.5vw,34px);
+        margin-bottom:5px;
+    }
+
+    .sister-text{
+        font-size:clamp(13px,3.8vw,18px);
+        line-height:1.4;
+    }
+}
+/* ===== GLOBAL TEXT POSITION FIX ===== */
+/* Only text/content moves upward. Images stay in original position. */
+
+.count{
+    transform:translateY(-35px);
+}
+
+body > .title,
+#content > .title{
+    transform:translateY(-35px);
+}
+
+body > .subtitle,
+#content > .subtitle{
+    transform:translateY(-35px);
+}
+
+/* Card-based text slides */
+.card{
+    transform:translateY(-35px);
+}
+
+/* Sister Bond: message αñèαñ¬αñ░, girl_idle image αñàαñ¬αñ¿αÑÇ αñ£αñùαñ╣ */
+.sister-message{
+    transform:translateY(-35px);
+}
+
+/* Small/finale text */
+.small{
+    transform:translateY(-35px);
+}
+
+/* Keep all images in their existing position */
+.character,
+.cake,
+.sister-girl,
+img{
+    /* position intentionally unchanged */
+}
+
+
+/* ===== FINAL SISTER MOBILE OVERRIDE ===== */
+.sister-slide{
+    width:min(1100px,92vw);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    text-align:center;
+    box-sizing:border-box;
+    overflow:visible;
+}
+
+.sister-girl{
+    width:min(420px,58vw);
+    height:auto;
+    max-width:90vw;
+    max-height:55vh;
+    object-fit:contain;
+    display:block;
+    visibility:visible;
+    opacity:1;
+    margin:0 auto;
+}
+
+.sister-message{
+    width:min(900px,90vw);
+    padding:12px 22px;
+    box-sizing:border-box;
+}
+
+@media (max-width:600px){
+    .sister-slide{
+        width:100%;
+        padding:8px;
+        gap:10px;
+    }
+
+    .sister-girl{
+        width:min(300px,78vw);
+        max-width:78vw;
+        max-height:48vh;
+        height:auto;
+        object-fit:contain;
+    }
+
+    .sister-message{
+        width:92vw;
+        max-width:92vw;
+        padding:10px 14px;
+    }
+
+    .sister-message .title{
+        font-size:clamp(22px,6.5vw,34px);
+    }
+
+    .sister-text{
+        font-size:clamp(13px,3.8vw,18px);
+        line-height:1.4;
+    }
+}
+
+/* ===== MOBILE CELEBRATION IMAGE SIZE ===== */
+@media (max-width:600px){
+    .character{
+        width:min(360px,82vw) !important;
+        max-width:82vw !important;
+        height:auto !important;
+        max-height:52vh !important;
+        object-fit:contain !important;
+        display:block !important;
+        margin:10px auto !important;
+    }
+
+    .cake{
+        width:min(300px,65vw) !important;
+        max-width:65vw !important;
+        height:auto !important;
+        max-height:34vh !important;
+        object-fit:contain !important;
+        display:block !important;
+        margin:10px auto !important;
+    }
+}
+
+/* ===== FINAL MOBILE GIRL IMAGE FIX ===== */
+@media (max-width:600px){
+    .character{
+        width:auto !important;
+        max-width:90vw !important;
+        height:auto !important;
+        max-height:60vh !important;
+        object-fit:contain !important;
+        display:block !important;
+        margin:8px auto !important;
+    }
+}
+
+/* ===== FINAL GIRL HAPPY + CELEBRATE SIZE FIX ===== */
+@media (min-width:601px){
+    .character{
+        width:min(560px,82vw) !important;
+        max-width:82vw !important;
+        height:auto !important;
+        object-fit:contain !important;
+    }
+}
+
+@media (max-width:600px){
+    .character{
+        width:90vw !important;
+        max-width:90vw !important;
+        height:auto !important;
+        max-height:58vh !important;
+        object-fit:contain !important;
+        display:block !important;
+        margin:8px auto !important;
+    }
+}
+</style>
+</head>
+
+<body>
+<div id="stage">
+    <img id="bg" alt="">
+    <div id="particles"></div>
+    <div class="flash" id="flash"></div>
+    <div id="content"></div>
+    <div id="vignette"></div>
+    <div id="progress"></div>
+    <div id="controls">Click / Space / ΓåÆ : Next &nbsp; | &nbsp; ΓåÉ : Previous</div>
+
+    <div id="start">
+        <h1>Γ£¿ Best Sister Theatre Γ£¿</h1>
+        <p>A little cinematic sister surprise, made specially for Avantika.</p>
+        <button id="startBtn">Γû╢ Start Experience</button>
+    </div>
+</div>
+
+<audio id="music" preload="auto">
+    <source src="assets/birthday.ogg" type="audio/ogg">
+</audio>
+
+<script>
+const slides = [
+    {
+        type:"count",
+        bg:"assets/background_finale.png",
+        text:"3"
+    },
+    {
+        type:"count",
+        bg:"assets/background_finale.png",
+        text:"2"
+    },
+    {
+        type:"count",
+        bg:"assets/background_finale.png",
+        text:"1"
+    },
+    {
+        type:"birthday",
+        bg:"assets/background_birthday.png",
+        title:"≡ƒÄé Happy Birthday, My Dear Sister Avantika! ≡ƒÄé",
+        subtitle:"Today is all about celebrating you, your beautiful heart, your smile and the special place you have in my life."
+    },
+    {
+        type:"cake",
+        bg:"assets/background_birthday.png",
+        girl:"assets/girl_celebrate.png",
+        cake:"assets/cake.png",
+        title:"≡ƒÄé A Special Celebration for My Sister",
+        subtitle:"Because a wonderful sister like you deserves a birthday filled with love, laughter, happiness and beautiful memories."
+    },
+    {
+        type:"wish",
+        bg:"assets/background_garden.png",
+        title:"≡ƒî╕ My Special Birthday Wish For My Sister", text:"May your life always be filled with happiness, success, love and countless beautiful moments. May every dream in your heart come true. Keep smiling and always stay blessed, my dear sister."
+    },
+    {
+        type:"celebrate",
+        bg:"assets/background_birthday.png",
+        girl:"assets/girl_happy.png",
+        title:"≡ƒÄë Keep Smiling, My Sister!",
+        subtitle:"Keep shining, keep growing and keep being the wonderful person you are. Your happiness will always be special to me."
+    },
+    {
+        type:"memory",
+        bg:"assets/background_garden.png",
+        title:"≡ƒî┐ Our Beautiful Sister Memories",
+        text:"Every laugh, every conversation and every little moment with you becomes a memory I will always cherish. Having you as my sister makes my journey more beautiful."
+    },
+    {
+        type:"message",
+        bg:"assets/background_garden.png",
+        title:"≡ƒÆî A Heartfelt Message For My Sister",
+        text:"No matter how much life changes, the bond between a brother and sister remains precious. Thank you for being such an important part of my life. I am truly grateful and lucky to have a sister like you."
+    },
+    {
+        type:"you",
+        bg:"assets/background_garden.png",
+        title:"Γ£¿ You Are Truly Special, Sister",
+        text:"You are kind, caring, strong, funny and precious. Your presence makes life brighter, and I will always be proud to call you my sister."
+    },
+    {
+        type:"adventure",
+        bg:"assets/background_garden.png",
+        title:"≡ƒî╕ More Beautiful Moments Ahead",
+        text:"More laughs, more conversations, more memories and many more beautiful moments to celebrate together. Our brother-sister bond has many wonderful chapters ahead."
+    },
+    {
+        type:"sister",
+        bg:"assets/background_finale.png",
+        girl:"assets/girl_idle.png",
+        title:"≡ƒæ¡ Sister Bond",
+        text:"Being your brother is one of the special gifts of my life. You are not just my sister, you are a beautiful part of my happiness, my memories and my journey. I hope your birthday brings you endless smiles, love, success and all the happiness you truly deserve. Happy Birthday, my dear sister! Γ¥ñ∩╕Å"
+    },
+    {
+        type:"finale",
+        bg:"assets/background_finale.png",
+        title:"≡ƒîƒ Happy Birthday, My Dear Sister Avantika! ≡ƒîƒ",
+        subtitle:"Stay happy, stay blessed, keep smiling and keep shining. I am always grateful to have a wonderful sister like you.",
+        text:"ΓÇö Your Brother Γ¥ñ∩╕Å"
+    }
+];
+
+const durations = [
+    2,2,2,5,7,6,6,7,9,5,5,4,5
+];
+
+let index = 0;
+let elapsed = 0;
+let running = false;
+let last = performance.now();
+
+const stage = document.getElementById("stage");
+const bg = document.getElementById("bg");
+const content = document.getElementById("content");
+const progress = document.getElementById("progress");
+const particles = document.getElementById("particles");
+const music = document.getElementById("music");
+const start = document.getElementById("start");
+const flash = document.getElementById("flash");
+
+function setBackground(src){
+    bg.style.opacity = "0";
+    setTimeout(()=>{
+        bg.src = src;
+        bg.style.opacity = "1";
+        bg.style.transform = "scale(1.08)";
+    },80);
+}
+
+function clearExtra(){
+    document.querySelectorAll(".character,.cake,.heart,.spark").forEach(x=>x.remove());
+    particles.innerHTML="";
+}
+
+function makeHearts(amount=12){
+    for(let i=0;i<amount;i++){
+        const h=document.createElement("div");
+        h.className="heart";
+        h.textContent="ΓÖÑ";
+        h.style.left=(10+Math.random()*80)+"%";
+        h.style.bottom=(5+Math.random()*20)+"%";
+        h.style.animationDelay=(Math.random()*1.2)+"s";
+        h.style.fontSize=(18+Math.random()*20)+"px";
+        particles.appendChild(h);
+    }
+}
+
+function makeSparks(amount=70){
+    for(let i=0;i<amount;i++){
+        const s=document.createElement("div");
+        s.className="spark";
+        s.style.left=(20+Math.random()*60)+"%";
+        s.style.top=(15+Math.random()*55)+"%";
+        s.style.opacity=(.4+Math.random()*.6);
+        s.animate(
+            [
+                {transform:"translate(0,0) scale(.3)",opacity:0},
+                {transform:`translate(${(Math.random()-.5)*240}px,${(Math.random()-.5)*180}px) scale(1)`,opacity:1},
+                {transform:`translate(${(Math.random()-.5)*380}px,${(Math.random()-.5)*280}px) scale(0)`,opacity:0}
+            ],
+            {duration:1200+Math.random()*1800,iterations:Infinity,delay:Math.random()*1500}
+        );
+        particles.appendChild(s);
+    }
+}
+
+function burst(){
+    flash.animate(
+        [{opacity:0},{opacity:.8},{opacity:0}],
+        {duration:500,easing:"ease-out"}
+    );
+
+    makeHearts(18);
+    makeSparks(90);
+}
+
+function render(){
+    clearExtra();
+
+    const s=slides[index];
+    setBackground(s.bg);
+
+    let html="";
+
+    if(s.type==="count"){
+        html=`<div class="count">${s.text}</div>`;
+    }
+    else if(s.type==="birthday"){
+        html=`
+            <div class="title">${s.title}</div>
+            <div class="subtitle">${s.subtitle}</div>
+        `;
+        makeSparks(70);
+    }
+    else if(s.type==="cake"){
+        html=`
+            <div class="title" style="font-size:clamp(34px,5vw,70px)">${s.title}</div>
+            <div class="subtitle">${s.subtitle}</div>
+            <img class="character" src="${s.girl}?v=10">
+            <img class="cake" src="${s.cake}">
+        `;
+        makeHearts(10);
+    }
+    else if(s.type==="celebrate"){
+        html=`
+            <div class="title">${s.title}</div>
+            <div class="subtitle">${s.subtitle}</div>
+            <img class="character" src="${s.girl}?v=10">
+        `;
+        burst();
+    }
+    else if(
+        s.type==="wish" ||
+        s.type==="memory" ||
+        s.type==="message" ||
+        s.type==="you" ||
+        s.type==="adventure"
+    ){
+        html=`
+            <div class="card">
+                <div class="title" style="font-size:clamp(34px,5vw,64px)">
+                    ${s.title}
+                </div>
+
+                <div class="subtitle"
+                     style="font-size:clamp(18px,2.4vw,30px);
+                            line-height:1.6;
+                            max-width:1000px;
+                            margin:auto;">
+                    ${s.text}
+                </div>
+            </div>
+        `;
+
+        makeSparks(35);
+    }
+    else if(s.type==="sister"){
+        html=`
+            <div class="sister-slide">
+
+                <img
+                    class="sister-girl"
+                    src="${s.girl}?v=10"
+                    alt="Sister"
+                >
+
+                <div class="sister-message">
+
+                    <div class="title">
+                        ${s.title}
+                    </div>
+
+                    <div class="sister-text">
+                        ${s.text}
+                    </div>
+
+                </div>
+
+            </div>
+        `;
+
+        makeHearts(12);
+        makeSparks(35);
+    }
+    else if(s.type==="finale"){
+        html=`
+            <div class="card">
+                <div class="title">${s.title}</div>
+                <div class="subtitle">${s.subtitle}</div>
+                <div class="small">${s.text}</div>
+            </div>
+        `;
+        burst();
+    }
+
+    content.innerHTML=html;
+
+    if(index===0){
+        makeSparks(25);
+    }
+}
+
+function next(){
+    if(index<slides.length-1){
+        index++;
+        elapsed=0;
+        render();
+    }else{
+        running=false;
+    }
+}
+
+function prev(){
+    if(index>0){
+        index--;
+        elapsed=0;
+        render();
+    }
+}
+
+function loop(now){
+    if(!running)return;
+
+    const dt=(now-last)/1000;
+    last=now;
+
+    elapsed+=Math.min(dt,.1);
+
+    const duration=durations[index];
+    progress.style.width=Math.min(100,(elapsed/duration)*100)+"%";
+
+    if(elapsed>=duration)next();
+
+    requestAnimationFrame(loop);
+}
+
+async function startExperience(){
+    if(running)return;
+
+    try{
+        music.currentTime=0;
+        await music.play();
+    }catch(e){
+        console.log("Audio playback needs user interaction:",e);
+    }
+
+    start.style.display="none";
+    running=true;
+    index=0;
+    elapsed=0;
+    last=performance.now();
+    render();
+    requestAnimationFrame(loop);
+}
+
+document.getElementById("startBtn").addEventListener("click",startExperience);
+
+document.addEventListener("keydown",e=>{
+    if(e.code==="Space" || e.code==="ArrowRight"){
+        e.preventDefault();
+        next();
+    }
+    else if(e.code==="ArrowLeft"){
+        e.preventDefault();
+        prev();
+    }
+});
+
+stage.addEventListener("click",e=>{
+    if(start.style.display!=="none")return;
+    if(e.target.closest("#controls"))return;
+    next();
+});
+
+let touchX=0;
+
+stage.addEventListener("touchstart",e=>{
+    touchX=e.changedTouches[0].screenX;
+},{passive:true});
+
+stage.addEventListener("touchend",e=>{
+    const x=e.changedTouches[0].screenX;
+    const diff=x-touchX;
+
+    if(Math.abs(diff)>50){
+        if(diff<0)next();
+        else prev();
+    }
+},{passive:true});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
