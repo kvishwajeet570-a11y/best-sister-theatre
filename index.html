@@ -167,6 +167,27 @@ body{
     opacity:.82;
     font:18px Arial,sans-serif;
 }
+#downloadBtn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:14px;
+    padding:12px 26px;
+    border:1px solid rgba(255,255,255,.35);
+    border-radius:999px;
+    background:rgba(255,255,255,.08);
+    color:#fff;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.25s ease;
+}
+
+#downloadBtn:hover{
+    background:rgba(255,255,255,.16);
+    transform:translateY(-2px);
+}
 #startBtn{
     margin-top:30px;
     border:0;
@@ -649,6 +670,9 @@ body{
         <h1>✨ Best Sister Theatre ✨</h1>
         <p>A little cinematic sister surprise, made specially for Avantika.</p>
         <button id="startBtn">▶ Start Experience</button>
+<a id="downloadBtn" href="./Best-Sister-Theatre.zip" download="Best-Sister-Theatre.zip">
+    &#8595; Download
+</a>
     </div>
 </div>
 
