@@ -1,0 +1,23 @@
+{
+  "name": "best_friend_theatre_new",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kvishwajeet570-a11y/best-sister-theatre.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kvishwajeet570-a11y/best-sister-theatre/issues"
+  },
+  "homepage": "https://github.com/kvishwajeet570-a11y/best-sister-theatre#readme",
+  "description": "",
+  "devDependencies": {
+    "playwright": "^1.63.0"
+  }
+}
